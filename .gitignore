@@ -10,7 +10,16 @@ lerna-debug.log*
 node_modules
 dist
 dist-ssr
+dist/
 *.local
+
+pnpm-lock.yaml
+yarn.lock
+package-lock.json
+
+.vite/
+.vitepress/
+
 
 # Editor directories and files
 .vscode/*
