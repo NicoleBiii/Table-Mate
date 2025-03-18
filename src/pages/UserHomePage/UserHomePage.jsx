@@ -1,9 +1,11 @@
+import React from 'react';
 import "./UserHomePage.scss"
 import { useEffect, useState } from "react"
 import { useTranslation } from "react-i18next";
 import '../../i18n';
 import Header from "../../components/Header/Header";
 import { useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 function UserHomePage() {
     const { tableNumber } = useParams();
