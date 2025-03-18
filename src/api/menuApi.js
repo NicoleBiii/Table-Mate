@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_BASE_URL = import.meta.env.VITE_API_URL + "spi/menu";
+const API_BASE_URL = import.meta.env.VITE_API_URL + "/api/menu";
 
 // Get all menu item
 export const getAllMenuItems = async (lang = "en") => {

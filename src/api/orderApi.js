@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_BASE_URL = import.meta.env.VITE_API_URL + "spi/menu";
+const API_BASE_URL = import.meta.env.VITE_API_URL + "/api/order";
 
 // Get all orders
 export const getAllOrders = async (token) => {
@@ -15,12 +15,10 @@ export const getAllOrders = async (token) => {
     }
   };
 
-// Get order by id
+// Get order by id ( that doesn't need auth)
 export const getOrderById = async (id, token) => {
     try {
-      const response = await axios.get(`${API_BASE_URL}/${id}`, {
-        headers: { Authorization: `Bearer ${token}` },
-      });
+      const response = await axios.get(`${API_BASE_URL}/${id}`);
       return response.data;
     } catch (error) {
       console.error("Error fetching order:", error);
@@ -28,12 +26,10 @@ export const getOrderById = async (id, token) => {
     }
   };
 
-// Place an order
+// Place an order( that doesn't need auth)
 export const createOrder = async (orderData, token) => {
     try {
-      const response = await axios.post(API_BASE_URL, orderData, {
-        headers: { Authorization: `Bearer ${token}` },
-      });
+      const response = await axios.post(API_BASE_URL, orderData);
       return response.data;
     } catch (error) {
       console.error("Error creating order:", error);
