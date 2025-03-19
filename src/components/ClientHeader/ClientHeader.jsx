@@ -1,8 +1,14 @@
-import "./Header.scss";
-import i18n from "../../i18n";
+import "./ClientHeader.scss";
+import { useContext } from "react";
+import { LanguageContext } from "../../context/LanguageContent";
 import logo from "../../assets/images/logo_dark.PNG"
+import { useTranslation } from "react-i18next"; 
 
-function Header({ toggleLanguage }) {
+function ClientHeader() {
+      
+  const { toggleLanguage } = useContext(LanguageContext);
+  const { i18n } = useTranslation();
+
   return (
     <div className="header">
       <img src={logo} alt="logo" className="header__logo" />
@@ -15,4 +21,4 @@ function Header({ toggleLanguage }) {
   )
 }
 
-export default Header
+export default ClientHeader;

@@ -17,7 +17,7 @@ i18n
       },
     },
     lng: 'en', 
-    fallbackLng: 'en',
+    fallbackLng: localStorage.getItem("i18nLanguage") || "en",
     interpolation: {
       escapeValue: false,
     },

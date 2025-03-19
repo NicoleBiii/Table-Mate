@@ -1,6 +1,6 @@
 import React from 'react'
 
-function ClientHomePage() {
+function MarchantHeader() {
   return (
     <div>
       
@@ -8,4 +8,4 @@ function ClientHomePage() {
   )
 }
 
-export default ClientHomePage
+export default MarchantHeader
