@@ -1,7 +1,7 @@
 import MarchantHeader from "../../components/MarchantHeader/MarchantHeader";
 import MarchantSideNav from "../../components/MarchantSideNav/MarchantSideNav";
 
-function MarchantLayout() {
+function MarchantLayout({ children }) {
   return (
     <div>
       <MarchantHeader />
