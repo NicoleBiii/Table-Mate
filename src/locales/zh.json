@@ -5,8 +5,11 @@
     "myorder": "订单",
     "profile": "我的",
     "order_page": "点单页面",
+    "marchant_panel": "控制台",
     "login": "登陆",
-    "orders": "订单",
+    "menu_manage": "菜单管理",
+    "tables": "桌台管理",
+    "orders": "订单管理",
     "my_account": "我的",
     "waitlist": "排队"
   }

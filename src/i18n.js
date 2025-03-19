@@ -23,4 +23,12 @@ i18n
     },
   });
 
+// document.documentElement.lang = savedLang;
+
+// i18n.on('languageChanged', (lang) => {
+//   document.documentElement.lang = lang;
+//   localStorage.setItem("i18nLanguage", lang);
+// });
+
+
 export default i18n;

@@ -2,7 +2,7 @@ import "./ClientHeader.scss";
 import { useContext } from "react";
 import { LanguageContext } from "../../context/LanguageContent.jsx";
 import { useTranslation } from "react-i18next"; 
-import logo from "../../assets/images/logo_dark.PNG"
+import logo from "../../assets/images/logo_dark.PNG";
 
 function ClientHeader() {
       

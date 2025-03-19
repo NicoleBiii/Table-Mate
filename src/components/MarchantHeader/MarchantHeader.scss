@@ -1,0 +1,17 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.m-header {
+    height: 5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: $primary-brown;
+    &__logo {
+        height: 5rem;
+        padding: 0 2rem;
+    }
+    &__right {
+        display: flex;
+    }
+}

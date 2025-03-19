@@ -1,1 +1,15 @@
+@use "./variables" as *;
+@use "./mixins" as *;
 
+
+body {
+    font-family: "OpenSans", "NotoSansSC", sans-serif;
+}
+
+// html[lang="en"] {
+//     font-family: "OpenSans", sans-serif;
+// }
+
+// html[lang="zh"] {
+//     font-family: "NotoSansSC", sans-serif;
+// }
