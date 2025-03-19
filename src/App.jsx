@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { LanguageProvider } from './context/LanguageContent';
+import { LanguageProvider } from './context/LanguageContent.jsx';
 import ClientLayout from "./layouts/ClientLayout/ClientLayout";
 import MarchantLayout from "./layouts/MarchantLayout/MarchantLayout";
 // User Pages
@@ -18,8 +18,8 @@ function App() {
       <BrowserRouter>
         <Routes>
           {/* user routes */}
-          <Route path="/table/:tableNumber" element={<ClientLayout><UserHomePage /></ClientLayout>} />
-          <Route path="/table/:tableNumber" element={<ClientLayout><UserMenu /></ClientLayout>} />
+          <Route path="/user/:tableNumber" element={<ClientLayout><UserHomePage /></ClientLayout>} />
+          <Route path="/user/menu" element={<ClientLayout><UserMenu /></ClientLayout>} />
 
           {/* marchant routes */}
           <Route path="/" element={<MarchantLayout><MarchantHomePage /></MarchantLayout>} />
@@ -28,7 +28,6 @@ function App() {
         </Routes>
       </BrowserRouter>
     </LanguageProvider>
-
   )
 }
 

@@ -2,7 +2,10 @@
     "order": "Order",
     "take_number": "Take a Number",
     "home": "Home",
+    "myorder": "My Order",
+    "profile": "Profile",
     "order_page": "Order Page",
     "orders": "Orders",
-    "my_account": "My Account"
+    "my_account": "My Account",
+    "waitlist": "Waitlist"
   }

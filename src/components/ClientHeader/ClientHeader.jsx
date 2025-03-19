@@ -1,6 +1,6 @@
 import "./ClientHeader.scss";
 import { useContext } from "react";
-import { LanguageContext } from "../../context/LanguageContent";
+import { LanguageContext } from "../../context/LanguageContent.jsx";
 import logo from "../../assets/images/logo_dark.PNG"
 import { useTranslation } from "react-i18next"; 
 

@@ -20,8 +20,8 @@ function UserHomePage() {
 
   return (
     <div className="user-home">
-      <button>Order</button>
-      <button>Join Queue</button>
+      <button>{t("order")}</button>
+      <button>{t("waitlist")}</button>
     </div>
   )
 }
