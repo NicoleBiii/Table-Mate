@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_BASE_URL = import.meta.env.VITE_API_URL + "/api/order";
+const API_BASE_URL = import.meta.env.VITE_API_URL + "/api/orders";
 
 // Get all orders
 export const getAllOrders = async (token) => {
@@ -25,6 +25,17 @@ export const getOrderById = async (id, token) => {
       throw error;
     }
   };
+
+// Get order by date
+export const getOrdersByDate = async (date) => {
+  try {
+    const response = await axios.get(`${API_BASE_URL}?date=${date}`);
+    const data = response.data;
+    return data;
+  } catch (error) {
+    console.error("Error fetching orders:", error);
+  }
+};
 
 // Place an order( that doesn't need auth)
 export const createOrder = async (orderData, token) => {

@@ -26,4 +26,4 @@ function UserHomePage() {
   )
 }
 
-export default UserHomePage
+export default UserHomePage;
