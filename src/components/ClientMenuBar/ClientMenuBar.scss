@@ -6,6 +6,9 @@
     height: calc(100vh - 3rem);
     background-color: $secondary-white;
     font-size: .8rem;
+    position: sticky;
+    top: 0;
+    overflow-y: auto;
     &__item {
         cursor: pointer;
         height: 3rem;
