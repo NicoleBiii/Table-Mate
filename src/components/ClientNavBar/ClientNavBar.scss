@@ -1,0 +1,28 @@
+@use "../../styles/mixins" as *;
+@use "../../styles/variables" as *;
+
+.c-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: $secondary-white;
+    height: 3rem;
+    &__link {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-size: 0.6125rem;
+        color: $secondary-brown;
+        &--active {
+            color: $primary-black;
+        }
+    }
+    &__icon {
+        height: 1.25rem;
+    }
+}

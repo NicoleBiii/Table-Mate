@@ -3,6 +3,7 @@ import { useContext } from "react";
 import { LanguageContext } from "../../context/LanguageContent.jsx";
 import { useTranslation } from "react-i18next"; 
 import logo from "../../assets/images/logo_dark.PNG";
+import "./ClientHeader.scss";
 
 function ClientHeader() {
       
@@ -10,11 +11,11 @@ function ClientHeader() {
   const { i18n } = useTranslation();
 
   return (
-    <div className="header">
-      <img src={logo} alt="logo" className="header__logo" />
+    <div className="c-header">
+      <img src={logo} alt="logo" className="c-header__logo" />
       <button
       onClick={toggleLanguage}
-      className="header__lang-switch">
+      className="c-header__lang-switch">
         {i18n.language === 'en' ? 'Switch to 中文' : 'Switch to English'}
       </button>
     </div>

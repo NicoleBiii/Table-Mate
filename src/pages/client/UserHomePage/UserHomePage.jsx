@@ -17,9 +17,9 @@ function UserHomePage() {
         }
     },[tableNumber, navigate]);
 
-
   return (
     <div className="user-home">
+      
       <button>{t("order")}</button>
       <button>{t("waitlist")}</button>
     </div>
