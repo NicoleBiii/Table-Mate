@@ -1,2 +1,29 @@
 @use "../../../styles/mixins" as *;
 @use "../../../styles/variables" as *;
+
+
+.u-home {
+    height: calc(100vh - 3rem);
+    background-image: url("../../../assets/images/background.jpg");
+    background-size: cover;
+    background-position: center center; 
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: end;
+    gap: 1.5rem;
+    padding: 3rem 2rem;
+    &__link {
+        width: 50%;
+        height: 5.5rem;
+        background-color: rgba($color: $primary-white, $alpha: 0.65);
+        display: flex;
+        flex-direction: column;
+        padding: 1rem 1.5rem;
+        border-radius: .3125rem;
+        color: $primary-brown;
+    }
+    &__icon {
+        height: 4rem;
+        align-self: flex-end;
+    }
+}

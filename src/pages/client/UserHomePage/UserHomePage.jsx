@@ -3,8 +3,9 @@ import "./UserHomePage.scss"
 import { useEffect, useState } from "react"
 import { useTranslation } from "react-i18next";
 import '../../../i18n';
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
+import { ChefHat, ListEnd } from 'lucide-react';
 
 function UserHomePage() {
     const { tableNumber } = useParams();
@@ -18,10 +19,15 @@ function UserHomePage() {
     },[tableNumber, navigate]);
 
   return (
-    <div className="user-home">
-      
-      <button>{t("order")}</button>
-      <button>{t("waitlist")}</button>
+    <div className="u-home">
+      <Link className='u-home__link'>
+        {t("order")}
+        <ChefHat className='u-home__icon'/>
+      </Link>
+      <Link className='u-home__link'>
+        {t("waitlist")}
+        <ListEnd className='u-home__icon'/>
+      </Link>
     </div>
   )
 }
