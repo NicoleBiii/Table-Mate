@@ -1,5 +1,6 @@
 import React from 'react';
 import "./UserHomePage.scss"
+import logo from "../../../assets/images/logo_bright.PNG";
 import { useEffect, useState } from "react"
 import { useTranslation } from "react-i18next";
 import '../../../i18n';
@@ -20,6 +21,8 @@ function UserHomePage() {
 
   return (
     <div className="u-home">
+
+      <img src={logo} alt="logo" className="u-home__logo" />
       <Link className='u-home__link'>
         {t("order")}
         <ChefHat className='u-home__icon'/>

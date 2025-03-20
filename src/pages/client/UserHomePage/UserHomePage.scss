@@ -12,6 +12,14 @@
     align-items: end;
     gap: 1.5rem;
     padding: 3rem 2rem;
+    position: relative;
+    &__logo {
+        position: absolute;
+        height: 12%;
+        opacity: 0.8;
+        top: 5%;
+        left: 1rem;
+    }
     &__link {
         width: 50%;
         height: 5.5rem;
