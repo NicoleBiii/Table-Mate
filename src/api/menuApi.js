@@ -5,7 +5,8 @@ const API_BASE_URL = import.meta.env.VITE_API_URL + "/api/menu";
 // Get all menu item
 export const getAllMenuItems = async (lang = "en") => {
     try {
-      const response = await axios.get(`${API_BASE_URL}?lang=${lang}`);
+      const langKey = lang === "zh" ? "cn" : lang;
+      const response = await axios.get(`${API_BASE_URL}?lang=${langKey}`);
       return response.data;
     } catch (error) {
       console.error("Error fetching menu items:", error);

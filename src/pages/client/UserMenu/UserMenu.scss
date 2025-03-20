@@ -1,0 +1,8 @@
+@use "../../../styles/variables" as *;
+@use "../../../styles/mixins" as *;
+
+
+.c-menu {
+    padding-top: 4rem;
+    display: flex;
+}

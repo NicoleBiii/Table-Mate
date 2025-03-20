@@ -19,7 +19,7 @@ function App() {
         <Routes>
           {/* user routes */}
           <Route path="/user/:tableNumber" element={<ClientLayout><UserHomePage /></ClientLayout>} />
-          <Route path="/user/menu" element={<ClientLayout><UserMenu /></ClientLayout>} />
+          <Route path="/user/:tableNumber/menu" element={<ClientLayout><UserMenu /></ClientLayout>} />
 
           {/* marchant routes */}
           <Route path="/" element={<MarchantLayout><MarchantHomePage /></MarchantLayout>} />
