@@ -170,7 +170,7 @@ function UserOrderPage() {
                 ) : (
                     <p>{t("cart_empty")}</p>
                 )}
-                <button onClick={handleCheckout}>下单</button> 
+                <button onClick={handleCheckout}>{t("add")}</button> 
             </div>
                 {order && (
                     <div className="myorder">

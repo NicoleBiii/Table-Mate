@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import { Link, useParams,useLocation } from 'react-router-dom';
 import { useTranslation } from "react-i18next";
 import { House, Utensils, SquareMenu, User } from 'lucide-react';

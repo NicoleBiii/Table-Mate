@@ -1,0 +1,67 @@
+// UserProfile.scss
+@use "../../../styles/variables" as *;
+@use "../../../styles/mixins" as *;
+
+.user-profile {
+  padding: 1.5rem;
+  min-height: 100vh;
+  background: $secondary-beige;
+
+  &__header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 2px solid rgba($primary-brown, 0.1);
+
+    svg {
+      width: 3.5rem;
+      height: 3.5rem;
+      color: $secondary-orange;
+    }
+
+    h1 {
+      font-weight: $font-weight-demi;
+      color: $primary-brown;
+      margin: 0;
+      font-size: 1.5rem;
+    }
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin-top: 2rem;
+
+    &-item {
+      background: $primary-white;
+      border-radius: .3125rem;
+      padding: 1.5rem;
+      text-align: center;
+      transition: all $transition-speed;
+      box-shadow: 0 2px 8px rgba($primary-black, 0.05);
+      
+      &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba($primary-black, 0.1);
+        background: darken($primary-white, 2%);
+      }
+
+      svg {
+        width: 2rem;
+        height: 2rem;
+        margin-bottom: 0.75rem;
+        color: $secondary-orange;
+      }
+
+      span {
+        display: block;
+        font-weight: $font-weight-medium;
+        color: $primary-brown;
+        font-size: 1rem;
+      }
+    }
+  }
+}

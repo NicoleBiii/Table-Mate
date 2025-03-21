@@ -24,8 +24,17 @@
     "order_status": "订单状态",
     "search_results_for": "结果",
     "no_search_results": "无相关菜品",
+    "add": "下单",
     "pending": "待处理",
     "preparing": "制作中",
     "served": "已上菜",
-    "completed": "已完成"
+    "completed": "已完成",
+    "order_history": "历史订单",
+    "my_bookings": "我的预定",
+    "my_profile": "我的资料",
+    "my_favorites": "我的收藏",
+    "name": "姓名",
+    "phone": "电话号码",
+    "party_size": "就餐人数",
+    "join_waitlist": "加入排队"
   }
