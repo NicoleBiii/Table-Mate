@@ -28,7 +28,6 @@ function ClientMenuItems({ selectedCategory, menuItems}) {
 
     return (
     <div className="c-dishes">
-        
         {menuItems[selectedCategory]?.map((item, index) => (
         <div className="c-dish">
             <div className="c-dish__photo">
@@ -47,11 +46,7 @@ function ClientMenuItems({ selectedCategory, menuItems}) {
                 </button>
                 </div>
             </div>
-
         </div>
-
-
-
       ))}
     </div>
   )

@@ -2,6 +2,7 @@ import "./UserMenu.scss";
 import { useDebounce } from 'use-debounce'; 
 import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
+import { Search } from 'lucide-react';
 import { Link } from "react-router-dom";
 import { searchMenuItems, getAllMenuItems } from "../../../api/menuApi";
 import ClientMenuBar from "../../../components/ClientMenuBar/ClientMenuBar";
@@ -39,17 +40,39 @@ function UserMenu() {
     fetchMenuItems();
   }, [i18n.language]);
 
+
+  const handleIconSearch = () => {
+    setForceSearch(prev => prev + 1);
+  };
+
   return (
-    <div className="c-menu">
-      <ClientMenuBar
-        categories={categories}
-        selectedCategory={selectedCategory}
-        onCategorySelect={setSelectedCategory}
-      />
-      <ClientMenuItems
-        selectedCategory={selectedCategory}
-        menuItems={menuItems}
-      />
+    <div className="c-menu-page">
+      <div className="c-menu-page__header">
+        <div className="menu-search">
+          <input 
+          type="text" 
+          className="menu-search__input" 
+          placeholder="Search..."
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+          />
+          <Search
+            className="menu-search__icon" 
+            onClick={handleIconSearch}
+            />
+          </div>
+      </div>
+          <div className="c-menu">
+            <ClientMenuBar
+              categories={categories}
+              selectedCategory={selectedCategory}
+              onCategorySelect={setSelectedCategory}
+            />
+            <ClientMenuItems
+              selectedCategory={selectedCategory}
+              menuItems={menuItems}
+            />
+          </div>
     </div>
   )
 }

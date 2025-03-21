@@ -1,8 +1,37 @@
 @use "../../../styles/variables" as *;
 @use "../../../styles/mixins" as *;
 
-
+.c-menu-page {
+    &__header {
+        height: 4rem;
+        width: 100%;
+        padding: 1rem 0 .5rem 1rem;
+        background-color:$secondary-white;
+    }
+}
+.menu-search {
+    position: relative;
+    width: 15rem;
+    &__input {
+        width: 15rem;
+        height: 2rem;
+        width: 15rem;
+        padding: 0 1rem;
+        border: 0.0625rem solid $primary-beige;
+        border-radius: 1.25rem;
+        &::placeholder {
+            color: $primary-light-brown;
+        }
+    }
+    
+    &__icon {
+        position: absolute;
+        right: .625rem;
+        top: calc(50% - .75rem);
+        height: 1.5rem;
+        cursor: pointer;
+    }
+}
 .c-menu {
-    padding-top: 4rem;
     display: flex;
 }
