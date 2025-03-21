@@ -23,5 +23,9 @@
     "ordered": "Order Placed",
     "order_status": "Order Status",
     "search_results_for": "Results for",
-    "no_search_results": "No results found for"
+    "no_search_results": "No results found for",
+    "pending": "待处理",
+    "preparing": "制作中",
+    "served": "已上菜",
+    "completed": "已完成"
   }

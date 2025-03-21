@@ -23,5 +23,9 @@
     "ordered": "已下单",
     "order_status": "订单状态",
     "search_results_for": "结果",
-    "no_search_results": "无相关菜品"
+    "no_search_results": "无相关菜品",
+    "pending": "Pending",
+    "preparing": "Preparing",
+    "served": "Served",
+    "completed": "Completed"
   }

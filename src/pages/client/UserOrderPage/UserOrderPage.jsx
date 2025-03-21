@@ -119,17 +119,20 @@ function UserOrderPage() {
     }
 
     return (
-        <div>
-            <h2>{t("table_number")}:{tableNumber}</h2>
+        <div className="u-order">
+            <h2 className="u-order__title">{t("table_number")}:{tableNumber}</h2>
             <div className="cart">
-                <h3>{t("cart")}</h3>
+                <h3 className="cart__title">{t("cart")}</h3>
                 {cart.length ? (
                     <ul>
                     {cart.map((item) => (
-                        <li key={item.id}>
-                        {item.name} - {item.quantity} 份
+                        <li className="u-dish" key={item.id}>
+                        <p className="u-dish__name">{item.name}</p>
+                        <div className="u-dish__modify">
                         <button onClick={() => updateQuantity(item.id, -1)}>-</button>
+                        {item.quantity}
                         <button onClick={() => updateQuantity(item.id, 1)}>+</button>
+                        </div>
                         </li>
                     ))}
                     </ul>
@@ -137,12 +140,11 @@ function UserOrderPage() {
                     <p>{t("cart_empty")}</p>
                 )}
                 <button onClick={handleCheckout}>下单</button> 
-                
             </div>
                 {order && (
                     <div className="myorder">
                         <h3>{t("ordered")}</h3>
-                        <p>{t("order_status")}</p>
+                        <p>{t("order_status")}:{t(order.status)}</p>
                         <ul>
                             {order.items.map((item) => (
                                 <li key={item.menuItem._id}>
