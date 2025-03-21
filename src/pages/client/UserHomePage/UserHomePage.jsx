@@ -4,8 +4,7 @@ import logo from "../../../assets/images/logo_bright.PNG";
 import { useEffect, useState } from "react"
 import { useTranslation } from "react-i18next";
 import '../../../i18n';
-import { Link, useNavigate } from "react-router-dom";
-import { useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { ChefHat, ListEnd } from 'lucide-react';
 
 function UserHomePage() {
@@ -23,7 +22,10 @@ function UserHomePage() {
     <div className="u-home">
 
       <img src={logo} alt="logo" className="u-home__logo" />
-      <Link className='u-home__link'>
+      <Link
+        to={`/user/${tableNumber}/menu`} 
+        className='u-home__link'
+      >
         {t("order")}
         <ChefHat className='u-home__icon'/>
       </Link>

@@ -6,7 +6,8 @@
         height: 4rem;
         width: 100%;
         padding: 1rem 0 .5rem 1rem;
-        background-color:$secondary-white;
+        background-color:$secondary-beige;
+        box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
     }
 }
 .menu-search {
@@ -17,14 +18,16 @@
         height: 2rem;
         width: 15rem;
         padding: 0 1rem;
-        border: 0.0625rem solid $primary-beige;
+        border: 0.0625rem solid $primary-light-brown;
         border-radius: 1.25rem;
+        outline: none;
         &::placeholder {
-            color: $primary-light-brown;
+            color: $primary-beige;
         }
     }
-    
+
     &__icon {
+        color: $secondary-orange;
         position: absolute;
         right: .625rem;
         top: calc(50% - .75rem);
@@ -32,6 +35,16 @@
         cursor: pointer;
     }
 }
+
+
+.search-title {
+    padding: 1rem 0 0 1rem;
+}
+
+.no-results {
+    padding-left: 1rem;
+}
+
 .c-menu {
     display: flex;
 }

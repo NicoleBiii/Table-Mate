@@ -21,5 +21,7 @@
     "cart": "Not Ordered",
     "order_updated": "Order Updated",
     "ordered": "Order Placed",
-    "order_status": "Order Status"
+    "order_status": "Order Status",
+    "search_results_for": "Results for",
+    "no_search_results": "No results found for"
   }
