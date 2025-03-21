@@ -3,12 +3,13 @@ import { useTranslation } from "react-i18next";
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { createOrder, getOrderById, updateOrder } from "../../../api/orderApi"; 
+import { getAllMenuItems } from "../../../api/menuApi";
 import i18n from "../../../i18n";
 
 function UserOrderPage() {
     const{ tableNumber } = useParams();
     const navigate = useNavigate();
-    const { t } = useTranslation();
+    const { t, i18n } = useTranslation();
     // Get cart
     const [cart, setCart] = useState(() => {
         const savedCart = sessionStorage.getItem("cart");
@@ -20,6 +21,33 @@ function UserOrderPage() {
         sessionStorage.setItem("cart", JSON.stringify(cart));
     }, [cart]);
 
+    const [allMenuItems, setAllMenuItems] = useState([]);
+
+    const updateCartNames = async () => {
+        try {
+            const latestMenu = await getAllMenuItems(i18n.language);
+            
+            const menuMap = new Map(latestMenu.map(item => [item.id, item]));
+            
+            const updatedCart = cart.map(cartItem => {
+                const latestItem = menuMap.get(cartItem.id);
+                return latestItem 
+                    ? { ...cartItem, name: latestItem.name }
+                    : cartItem;
+            });
+
+            setCart(updatedCart);
+        } catch (error) {
+            console.error("fail update cart", error);
+        }
+    };
+
+    useEffect(() => {
+        if (cart.length > 0) {
+            updateCartNames();
+        }
+    }, [i18n.language]);
+    
     // order
     const [order, setOrder] = useState(null);
     const orderId = localStorage.getItem("orderId");
@@ -117,6 +145,9 @@ function UserOrderPage() {
             alert(t("order_failed"));
         }
     }
+
+    console.log(cart);
+    
 
     return (
         <div className="u-order">
