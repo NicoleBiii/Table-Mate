@@ -49,11 +49,11 @@ export const createOrder = async (orderData, token) => {
   };
 
 // Update order
-export const updateOrder = async (id, orderData, token) => {
+export const updateOrder = async (id, orderData) => {
+  console.log("Calling API to update order:", id, orderData);
+  
     try {
-      const response = await axios.put(`${API_BASE_URL}/${id}`, orderData, {
-        headers: { Authorization: `Bearer ${token}` },
-      });
+      const response = await axios.put(`${API_BASE_URL}/${id}`, orderData);
       return response.data;
     } catch (error) {
       console.error("Error updating order:", error);

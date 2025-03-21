@@ -14,5 +14,12 @@
     "tables": "Tables",
     "orders": "Orders",
     "my_account": "My Account",
-    "waitlist": "Waitlist"
+    "waitlist": "Waitlist",
+    "cart_empty": "Cart Empty",
+    "order_successed": "Order Successed",
+    "table_number": "Table Number",
+    "cart": "Not Ordered",
+    "order_updated": "Order Updated",
+    "ordered": "Order Placed",
+    "order_status": "Order Status"
   }

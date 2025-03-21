@@ -6,6 +6,8 @@ import MarchantLayout from "./layouts/MarchantLayout/MarchantLayout";
 // User Pages
 import UserHomePage from "./pages/client/UserHomePage/UserHomePage";
 import UserMenu from "./pages/client/UserMenu/UserMenu";
+import UserOrderPage from './pages/client/UserOrderPage/UserOrderPage.jsx';
+import UserProfile from './pages/client/UserProfile/UserProfile.jsx';
 // Marchant Pages
 import MarchantHomePage from "./pages/marchant/MarchantHomePage/MarchantHomePage";
 import MarchantMenu from "./pages/marchant/MarchantMenu/MarchantMenu";
@@ -20,6 +22,8 @@ function App() {
           {/* user routes */}
           <Route path="/user/:tableNumber" element={<ClientLayout><UserHomePage /></ClientLayout>} />
           <Route path="/user/:tableNumber/menu" element={<ClientLayout><UserMenu /></ClientLayout>} />
+          <Route path="/user/:tableNumber/myorder" element={<ClientLayout><UserOrderPage /></ClientLayout>} />
+          <Route path="/user/:tableNumber/profile" element={<ClientLayout><UserProfile /></ClientLayout>} />
 
           {/* marchant routes */}
           <Route path="/" element={<MarchantLayout><MarchantHomePage /></MarchantLayout>} />

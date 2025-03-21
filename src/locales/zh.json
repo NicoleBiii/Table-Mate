@@ -14,5 +14,12 @@
     "tables": "桌台管理",
     "orders": "订单管理",
     "my_account": "我的",
-    "waitlist": "排队"
+    "waitlist": "排队",
+    "cart_empty": "购物车为空",
+    "order_successed": "下单成功",
+    "table_number": "桌号",
+    "cart": "未下单",
+    "order_updated": "订单已更新",
+    "ordered": "已下单",
+    "order_status": "订单状态"
   }
