@@ -40,5 +40,7 @@
     "join_waitlist": "Join Waitlist",
     "scan_qr_code": "Scan Table QR Code",
     "select_date": "Select Date",
-    "edit_order": "Edit Order"
+    "edit_order": "Edit Order",
+    "available": "Available",
+    "unavailable": "Not Available"
   }

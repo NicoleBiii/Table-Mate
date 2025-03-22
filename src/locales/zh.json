@@ -39,5 +39,7 @@
     "join_waitlist": "加入排队",
     "scan_qr_code": "请扫桌面二维码",
     "select_date": "选择日期",
-    "edit_order": "编辑订单"
+    "edit_order": "编辑订单",
+    "available": "有货",
+    "unavailable": "已下架"
     }

@@ -2,7 +2,11 @@
 .marchant_content {
     display: flex;
     height: 100vh;
+    overflow: hidden;
+    position: relative; 
 }
 .marchant_content main {
     flex: 1;
+    min-width: 0;
+    overflow-y: auto; 
 }
