@@ -38,5 +38,7 @@
     "phone": "Phone Number",
     "party_size": "Party Size",
     "join_waitlist": "Join Waitlist",
-    "scan_qr_code": "Scan Table QR Code"
+    "scan_qr_code": "Scan Table QR Code",
+    "select_date": "Select Date",
+    "edit_order": "Edit Order"
   }

@@ -10,6 +10,8 @@
   display: flex;
   flex-direction: column;
   transition: width $transition-speed ease-in-out;
+  flex-shrink: 0;
+  
 
   &.expanded {
       width: $sidebar-width-expanded;

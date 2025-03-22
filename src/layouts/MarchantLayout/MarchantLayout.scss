@@ -1,4 +1,8 @@
 
 .marchant_content {
     display: flex;
+    height: 100vh;
+}
+.marchant_content main {
+    flex: 1;
 }

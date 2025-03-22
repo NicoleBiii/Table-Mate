@@ -18,7 +18,7 @@
     flex-wrap: nowrap;
   }
   
-  // 横向可滚动容器
+
   @mixin scrollable-x {
     overflow-x: auto;
     scrollbar-width: thin;
@@ -35,7 +35,6 @@
     }
   }
   
-  // 居中对齐
   @mixin flex-align-center {
     display: flex;
     align-items: center;

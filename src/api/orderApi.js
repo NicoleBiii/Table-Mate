@@ -15,7 +15,7 @@ export const fetchOrders = async (date) => {
     if (date) params.append("date", date);
     
     const response = await fetch(`${API_BASE_URL}?${params}`);
-
+    
     if (!response.ok) throw new Error("Failed to fetch orders");
     return response.json();
   } catch (error) {
@@ -23,6 +23,17 @@ export const fetchOrders = async (date) => {
   }
 };
 
+
+// Get order by date
+export const getOrdersByDate = async (date) => {
+  try {
+    const response = await axios.get(`${API_BASE_URL}?date=${date}`);
+    const data = response.data;
+    return data;
+  } catch (error) {
+    console.error("Error fetching orders:", error);
+  }
+};
 // Get all orders
 export const getAllOrders = async (token) => {
     try {
@@ -46,17 +57,6 @@ export const getOrderById = async (id, token) => {
       return -1;
     }
   };
-
-// Get order by date
-export const getOrdersByDate = async (date) => {
-  try {
-    const response = await axios.get(`${API_BASE_URL}?date=${date}`);
-    const data = response.data;
-    return data;
-  } catch (error) {
-    console.error("Error fetching orders:", error);
-  }
-};
 
 // Place an order( that doesn't need auth)
 export const createOrder = async (orderData, token) => {
@@ -96,11 +96,9 @@ export const deleteOrder = async (id, token) => {
   };
 
 // update order status
-export const updateOrderStatus = async (id, status, token) => {
+export const updateOrderStatus = async (id, status) => {
     try {
-      const response = await axios.patch(`${API_BASE_URL}/${id}/status`, { status }, {
-        headers: { Authorization: `Bearer ${token}` },
-      });
+      const response = await axios.patch(`${API_BASE_URL}/${id}/status`, { status });
       return response.data;
     } catch (error) {
       console.error("Error updating order status:", error);
