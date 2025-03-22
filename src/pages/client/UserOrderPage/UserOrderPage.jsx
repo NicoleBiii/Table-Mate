@@ -51,8 +51,6 @@ function UserOrderPage() {
     // order
     const [order, setOrder] = useState(null);
     const orderId = localStorage.getItem("orderId");
-
-    console.log(orderId);
     
     // Getting order of current table
 
@@ -63,10 +61,11 @@ function UserOrderPage() {
         const fetchOrder = async () => {
             try {
                 const fetchedOrder = await getOrderById(orderId);
+                
                 setOrder(fetchedOrder);
 
-                // if order is paid, clear localStorage and set order to null
-                if (fetchedOrder.paymentStatus === "paid") {
+                // if order is paid or fail fetch order, clear localStorage and set order to null
+                if (fetchedOrder.paymentStatus === "paid" || !fetchedOrder || fetchedOrder == -1 ) {
                     localStorage.removeItem("orderId");
                     setOrder(null);
                 }
@@ -135,8 +134,9 @@ function UserOrderPage() {
 
             // Create a new order and save the orderId to localStorage
             const newOrder = await createOrder(orderData);
-            localStorage.setItem("orderId", newOrder._id);
-            setOrder(newOrder);
+            const populatedOrder = await getOrderById(newOrder._id);
+            localStorage.setItem("orderId", populatedOrder._id);
+            setOrder(populatedOrder);
             sessionStorage.removeItem("cart");
             setCart([]); 
             alert(t("order_successed"));
@@ -146,8 +146,6 @@ function UserOrderPage() {
         }
     }
 
-    console.log(cart);
-    
 
     return (
         <div className="u-order">

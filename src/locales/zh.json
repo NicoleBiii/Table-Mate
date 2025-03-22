@@ -1,5 +1,6 @@
 {
     "order": "点单",
+    "m-order": "订单管理",
     "take_number": "取号",
     "home": "首页",
     "myorder": "订单",
@@ -11,8 +12,7 @@
     "active_order_count": "桌台有客数",
     "active_menuitem": "可用菜品数",
     "menu_manage": "菜单管理",
-    "tables": "桌台管理",
-    "orders": "订单管理",
+    "table": "桌台管理",
     "my_account": "我的",
     "waitlist": "排队",
     "cart_empty": "购物车为空",

@@ -1,5 +1,6 @@
 {
     "order": "Order",
+    "m-order": "Orders",
     "take_number": "Take a Number",
     "home": "Home",
     "myorder": "My Order",
@@ -11,7 +12,7 @@
     "active_order_count": "Table With Guests",
     "active_menuitem": "Avail Menu Item",
     "menu_manage": "Menu",
-    "tables": "Tables",
+    "table": "Tables",
     "orders": "Orders",
     "my_account": "My Account",
     "waitlist": "Waitlist",

@@ -12,3 +12,36 @@
         @content;
     }
 }
+
+@mixin flex-nowrap {
+    display: flex;
+    flex-wrap: nowrap;
+  }
+  
+  // 横向可滚动容器
+  @mixin scrollable-x {
+    overflow-x: auto;
+    scrollbar-width: thin;
+    scrollbar-color: rgba($primary-black, 0.3) transparent;
+  
+    &::-webkit-scrollbar {
+      height: 6px;
+      background: transparent;
+    }
+  
+    &::-webkit-scrollbar-thumb {
+      background: rgba($primary-black, 0.3);
+      border-radius: 3px;
+    }
+  }
+  
+  // 居中对齐
+  @mixin flex-align-center {
+    display: flex;
+    align-items: center;
+  }
+  @mixin flex-space-between {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }

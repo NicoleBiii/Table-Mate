@@ -2,16 +2,19 @@
 @use "../../styles/mixins" as *;
 
 .m-header {
-    height: 5rem;
+    height: 3rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: $primary-brown;
+    background-color: $secondary-white;
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px;
     &__logo {
         height: 5rem;
-        padding: 0 2rem;
+        padding: .5rem 2rem 0 2rem;
     }
     &__right {
         display: flex;
+        gap: 1rem;
+        margin-right: 2rem;
     }
 }

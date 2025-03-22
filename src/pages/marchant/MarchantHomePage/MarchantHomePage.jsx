@@ -14,7 +14,7 @@ function MarchantHomePage() {
     const getOrder = async() => {
       try {
         const order_today = await getOrdersByDate(today);
-        const unpaidOrders = orders.filter(order => order.paymentStatus === 'unpaid');
+        const unpaidOrders = order_today.filter(order => order.paymentStatus === 'unpaid');
         setOrderCount(order_today.length);
         setActiveOrderCount(unpaidOrders.length);
       } catch (error) {
@@ -25,16 +25,16 @@ function MarchantHomePage() {
   },[])
 
   return (
-    <div>
-      <div className="inifor-card">
-        <h3>{t("order_count")}</h3>
-        <h3>{orderCount}</h3>
-        <Link>{t("orders")}</Link>
+    <div className="m-home">
+      <div className="infor-card">
+        <h3 className="infor-card__title">{t("order_count")}</h3>
+        <h3 className="infor-card__number">{orderCount}</h3>
+        <Link to="/merchant/order" className="infor-card__link">{t("orders")}</Link>
       </div>
-      <div className="inifor-card">
-        <h3>{t("active_order_count")}</h3>
-        <h3>{activeOrderCount}</h3>
-        <Link>{t("tables")}</Link>
+      <div className="infor-card">
+        <h3 className="infor-card__title">{t("active_order_count")}</h3>
+        <h3 className="infor-card__number">{activeOrderCount}</h3>
+        <Link to="/merchant/table" className="infor-card__link">{t("tables")}</Link>
       </div>
     </div>
   )

@@ -2,6 +2,27 @@ import axios from "axios";
 
 const API_BASE_URL = import.meta.env.VITE_API_URL + "/api/orders";
 
+
+const getHeaders = () => ({
+  "Content-Type": "application/json",
+  Authorization: `Bearer ${localStorage.getItem("token")}`
+});
+
+
+export const fetchOrders = async (date) => {
+  try {
+    const params = new URLSearchParams();
+    if (date) params.append("date", date);
+    
+    const response = await fetch(`${API_BASE_URL}?${params}`);
+
+    if (!response.ok) throw new Error("Failed to fetch orders");
+    return response.json();
+  } catch (error) {
+    throw error;
+  }
+};
+
 // Get all orders
 export const getAllOrders = async (token) => {
     try {
@@ -22,7 +43,7 @@ export const getOrderById = async (id, token) => {
       return response.data;
     } catch (error) {
       console.error("Error fetching order:", error);
-      throw error;
+      return -1;
     }
   };
 

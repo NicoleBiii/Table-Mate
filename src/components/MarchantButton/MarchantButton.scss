@@ -3,9 +3,9 @@
 
 .marchant-button {
     color: $primary-light-brown;
-    background-color: $primary-white;
+    background-color: rgba($secondary-white, 0.8);
     border: 2px solid $primary-light-brown;
-    border-radius: 1.25rem;
-    padding: 0.25rem 0.6rem;
+    border-radius: .5rem;
+    padding: 0.125rem 0.6rem;
     cursor: pointer;
 }

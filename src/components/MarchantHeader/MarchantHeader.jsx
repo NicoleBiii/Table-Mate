@@ -3,7 +3,7 @@ import { useContext } from "react";
 import { LanguageContext } from "../../context/LanguageContent.jsx";
 import { useTranslation } from "react-i18next"; 
 import { Link } from 'react-router-dom';
-import logo from "../../assets/images/logo_bright.PNG";
+import logo from "../../assets/images/logo_dark.PNG";
 import MarchantButton from '../MarchantButton/MarchantButton.jsx';
 import "./MarchantHeader.scss";
 
