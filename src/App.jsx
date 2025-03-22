@@ -4,6 +4,7 @@ import { LanguageProvider } from './context/LanguageContent.jsx';
 import ClientLayout from "./layouts/ClientLayout/ClientLayout";
 import MarchantLayout from "./layouts/MarchantLayout/MarchantLayout";
 // User Pages
+import UserScan from "./pages/client/UserScan/UserScan.jsx";
 import UserHomePage from "./pages/client/UserHomePage/UserHomePage";
 import UserMenu from "./pages/client/UserMenu/UserMenu";
 import UserOrderPage from './pages/client/UserOrderPage/UserOrderPage.jsx';
@@ -19,7 +20,9 @@ function App() {
       <BrowserRouter>
         <Routes>
           {/* user routes */}
+          <Route path="/scan" element={<UserScan />} />
           <Route path="/user/:tableNumber" element={<ClientLayout><UserHomePage /></ClientLayout>} />
+          <Route path="/user/" element={<ClientLayout><UserHomePage /></ClientLayout>} />
           <Route path="/user/:tableNumber/menu" element={<ClientLayout><UserMenu /></ClientLayout>} />
           <Route path="/user/:tableNumber/myorder" element={<ClientLayout><UserOrderPage /></ClientLayout>} />
           <Route path="/user/:tableNumber/profile" element={<ClientLayout><UserProfile /></ClientLayout>} />

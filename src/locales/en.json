@@ -36,5 +36,6 @@
     "name": "Name",
     "phone": "Phone Number",
     "party_size": "Party Size",
-    "join_waitlist": "Join Waitlist"
+    "join_waitlist": "Join Waitlist",
+    "scan_qr_code": "Scan Table QR Code"
   }

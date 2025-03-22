@@ -36,5 +36,6 @@
     "name": "姓名",
     "phone": "电话号码",
     "party_size": "就餐人数",
-    "join_waitlist": "加入排队"
-  }
+    "join_waitlist": "加入排队",
+    "scan_qr_code": "请扫桌面二维码"
+    }
