@@ -41,5 +41,7 @@
     "select_date": "选择日期",
     "edit_order": "编辑订单",
     "available": "有货",
-    "unavailable": "已下架"
+    "unavailable": "已下架",
+    "unpaid": "待付款",
+    "checkout": "结账"
     }

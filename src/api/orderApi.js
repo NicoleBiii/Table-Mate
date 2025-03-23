@@ -35,11 +35,9 @@ export const getOrdersByDate = async (date) => {
   }
 };
 // Get all orders
-export const getAllOrders = async (token) => {
+export const getAllOrders = async () => {
     try {
-      const response = await axios.get(API_BASE_URL, {
-        headers: { Authorization: `Bearer ${token}` },
-      });
+      const response = await axios.get(API_BASE_URL);
       return response.data;
     } catch (error) {
       console.error("Error fetching orders:", error);
@@ -48,7 +46,7 @@ export const getAllOrders = async (token) => {
   };
 
 // Get order by id ( that doesn't need auth)
-export const getOrderById = async (id, token) => {
+export const getOrderById = async (id) => {
     try {
       const response = await axios.get(`${API_BASE_URL}/${id}`);
       return response.data;
@@ -59,7 +57,7 @@ export const getOrderById = async (id, token) => {
   };
 
 // Place an order( that doesn't need auth)
-export const createOrder = async (orderData, token) => {
+export const createOrder = async (orderData) => {
     try {
       const response = await axios.post(API_BASE_URL, orderData);
       return response.data;
@@ -83,11 +81,9 @@ export const updateOrder = async (id, orderData) => {
   };
 
 // Delete order
-export const deleteOrder = async (id, token) => {
+export const deleteOrder = async (id) => {
     try {
-      const response = await axios.delete(`${API_BASE_URL}/${id}`, {
-        headers: { Authorization: `Bearer ${token}` },
-      });
+      const response = await axios.delete(`${API_BASE_URL}/${id}`);
       return response.data;
     } catch (error) {
       console.error("Error deleting order:", error);
@@ -107,11 +103,9 @@ export const updateOrderStatus = async (id, status) => {
   };
 
 // update payment status
-export const updatePaymentStatus = async (id, paymentStatus, token) => {
+export const updatePaymentStatus = async (id, paymentStatus) => {
     try {
-      const response = await axios.patch(`${API_BASE_URL}/${id}/payment`, { paymentStatus }, {
-        headers: { Authorization: `Bearer ${token}` },
-      });
+      const response = await axios.patch(`${API_BASE_URL}/${id}/payment`, { paymentStatus });
       return response.data;
     } catch (error) {
       console.error("Error updating payment status:", error);

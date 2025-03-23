@@ -42,5 +42,7 @@
     "select_date": "Select Date",
     "edit_order": "Edit Order",
     "available": "Available",
-    "unavailable": "Not Available"
+    "unavailable": "Not Available",
+    "unpaid": "Unpaid",
+    "checkout": "Checkout"
   }
