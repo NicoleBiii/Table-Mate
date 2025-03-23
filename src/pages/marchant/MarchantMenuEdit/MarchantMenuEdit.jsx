@@ -3,9 +3,11 @@ import { useParams, useNavigate } from "react-router-dom";
 import { getMenuItemById, updateMenuItem } from "../../../api/menuApi";
 import ImageUploader from "../../../components/ImageUploader/ImageUploader";
 import Loader from "../../../components/Loader/Loader";
+import { useTranslation } from "react-i18next";
 import "./MarchantMenuEdit.scss";
 
 const MenuEdit = () => {
+    const { t, i18n } = useTranslation();
   const { id } = useParams();
   const navigate = useNavigate();
   const [loading, setLoading] = useState(true);
@@ -61,7 +63,7 @@ const MenuEdit = () => {
       !formData.category.cn ||
       !formData.category.en
     ) {
-      alert("中英文名称和分类为必填项");
+      alert("chinede name and english name are needed");
       return;
     }
 
@@ -70,7 +72,7 @@ const MenuEdit = () => {
       navigate("/merchant/menu"); // back to menu page
     } catch (error) {
       console.error("Update failed:", error);
-      alert("更新失败");
+      alert("fail update");
     }
   };
 
@@ -86,12 +88,12 @@ const MenuEdit = () => {
 
   return (
     <div className="menu-edit">
-      <h1>编辑菜品</h1>
+      <h1>{t("menu_management.edit_dish")}</h1>
 
       <form onSubmit={handleSubmit}>
         {/* photo upload */}
         <div className="form-section">
-          <label>菜品图片</label>
+          <label>{t("menu_management.dish_image")}</label>
           <ImageUploader
             currentImage={formData.image}
             onUploadSuccess={handleUploadSuccess}
@@ -101,7 +103,7 @@ const MenuEdit = () => {
         {/* name */}
         <div className="language-inputs">
           <div className="input-group">
-            <label>中文名称</label>
+            <label>{t("menu_management.name_cn")}</label>
             <input
               type="text"
               value={formData.name.cn}
@@ -110,7 +112,7 @@ const MenuEdit = () => {
             />
           </div>
           <div className="input-group">
-            <label>英文名称</label>
+            <label>{t("menu_management.name_en")}</label>
             <input
               type="text"
               value={formData.name.en}
@@ -123,7 +125,7 @@ const MenuEdit = () => {
         {/* category */}
         <div className="language-inputs">
           <div className="input-group">
-            <label>中文分类</label>
+            <label>{t("menu_management.category_cn")}</label>
             <input
               type="text"
               value={formData.category.cn}
@@ -132,7 +134,7 @@ const MenuEdit = () => {
             />
           </div>
           <div className="input-group">
-            <label>英文分类</label>
+            <label>{t("menu_management.category_en")}</label>
             <input
               type="text"
               value={formData.category.en}
@@ -144,7 +146,7 @@ const MenuEdit = () => {
 
         {/* price */}
         <div className="input-group">
-          <label>价格</label>
+          <label>{t("menu_management.price")}</label>
           <input
             type="number"
             value={formData.price}
@@ -163,14 +165,14 @@ const MenuEdit = () => {
         {/* description */}
         <div className="language-inputs">
           <div className="input-group">
-            <label>中文描述</label>
+            <label>{t("menu_management.description_cn")}</label>
             <textarea
               value={formData.description.cn}
               onChange={handleChange("description", "cn")}
             />
           </div>
           <div className="input-group">
-            <label>英文描述</label>
+            <label>{t("menu_management.description_en")}</label>
             <textarea
               value={formData.description.en}
               onChange={handleChange("description", "en")}
@@ -191,14 +193,14 @@ const MenuEdit = () => {
                 }))
               }
             />
-            是否可用
+            {t("menu_management.available")}
           </label>
         </div>
 
         <div className="form-actions">
-          <button type="submit">保存修改</button>
+          <button type="submit">{t("menu_management.save")}</button>
           <button type="button" onClick={() => navigate(-1)}>
-            取消
+          {t("menu_management.save")}
           </button>
         </div>
       </form>

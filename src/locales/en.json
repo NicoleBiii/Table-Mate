@@ -65,6 +65,9 @@
       "price": "Price",
       "description_cn": "Chinese Description",
       "description_en": "English Description",
-      "available": "Available"
+      "available": "Available",
+      "edit_dish": "Edit Menu Item",
+      "dish_image": "Menu Item Image",
+      "save": "Save Change"
     }
   }

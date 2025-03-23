@@ -64,6 +64,9 @@
         "price": "价格",
         "description_cn": "中文描述",
         "description_en": "英文描述",
-        "available": "是否可用"
+        "available": "是否可用",
+        "edit_dish": "菜品编辑",
+        "dish_image": "菜品图片",
+        "save": "保存更改"
       }
     }

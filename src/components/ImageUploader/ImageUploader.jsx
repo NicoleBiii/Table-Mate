@@ -17,8 +17,6 @@ const ImageUploader = ({ currentImage, onUploadSuccess }) => {
           setError(t("no_file_selected"));
           return;
         }
-    
-        console.log("start to upload image:", file.name);
         
         if (!file.type.startsWith('image/')) {
           setError(t("invalid_file_type"));
@@ -36,7 +34,6 @@ const ImageUploader = ({ currentImage, onUploadSuccess }) => {
         try {
           const imageUrl = await uploadMenuItemImage(file);
           const fullImageUrl = `${API_BASE_URL}${imageUrl}`;
-          console.log("upload successful", imageUrl);
           onUploadSuccess(fullImageUrl);
         } catch (err) {
           console.error("upload error:", err);
