@@ -44,6 +44,8 @@
     "unavailable": "已下架",
     "unpaid": "待付款",
     "checkout": "结账",
+    "update": "更新",
+    "cancel": "取消",  
     "menu_management": {
         "upload": "上传",
         "browse_button": "浏览",
@@ -76,5 +78,27 @@
         "create": "创建",
         "name_category_required": "请填写中英文名称和分类",
         "create_failed": "创建失败"
+      },
+      "order_management": {
+        "edit_order": "编辑订单",
+        "table_number": "桌号",
+        "status": "状态",
+        "payment_status": "支付状态",
+        "items": "菜品项",
+        "add_item": "添加菜品项",
+        "remove_item": "移除",
+        "quantity": "数量",
+        "update_success": "订单更新成功",
+        "update_failed": "订单更新失败",
+        "status_options": {
+          "pending": "待处理",
+          "preparing": "准备中",
+          "served": "已上菜",
+          "completed": "已完成"
+        },
+        "payment_status_options": {
+          "unpaid": "未支付", 
+          "paid": "已支付"
+        }
       }
     }

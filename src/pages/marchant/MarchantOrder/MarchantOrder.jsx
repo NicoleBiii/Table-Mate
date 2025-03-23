@@ -1,6 +1,5 @@
 import "./MarchantOrder.scss";
 import 'react-datepicker/dist/react-datepicker.css';
-
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
@@ -105,7 +104,7 @@ function MarchantOrder() {
 
                   <div className="actions">
                     <Link 
-                      to={`/merchant/orders/${order._id}/edit`}
+                      to={`/merchant/order/${order._id}/edit`}
                       className="edit-button"
                     >
                       {t('edit_order')}

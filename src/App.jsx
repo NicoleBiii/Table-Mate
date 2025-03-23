@@ -15,6 +15,7 @@ import MarchantMenu from "./pages/marchant/MarchantMenu/MarchantMenu";
 import MarchantMenuEdit from "./pages/marchant/MarchantMenuEdit/MarchantMenuEdit.jsx";
 import MenuCreate from "./pages/marchant/MarchantMenuCreate/MarchantMenuCreate.jsx";
 import MarchantOrder from './pages/marchant/MarchantOrder/MarchantOrder.jsx';
+import MarchantOrderEdit from "./pages/marchant/MarchantOrderEdit/MarchantOrderEdit.jsx"
 import MarchantTable from './pages/marchant/MarchantTable/MarchantTable.jsx';
 
 
@@ -35,6 +36,7 @@ function App() {
           <Route path="/" element={<MarchantLayout><MarchantHomePage /></MarchantLayout>} />
           <Route path="/merchant" element={<MarchantLayout><MarchantHomePage /></MarchantLayout>} />
           <Route path="/merchant/order" element={<MarchantLayout><MarchantOrder /></MarchantLayout>} />
+          <Route path="/merchant/order/:id/edit" element={<MarchantLayout><MarchantOrderEdit /></MarchantLayout>} />
           <Route path="/merchant/menu" element={<MarchantLayout><MarchantMenu /></MarchantLayout>} />
           <Route path="/merchant/menu/edit/:id" element={<MarchantLayout><MarchantMenuEdit /></MarchantLayout>} />
           <Route path="/merchant/menu/create" element={<MarchantLayout><MenuCreate /></MarchantLayout>} />

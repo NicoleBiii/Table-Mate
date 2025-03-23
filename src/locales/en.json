@@ -44,7 +44,9 @@
     "available": "Available",
     "unavailable": "Not Available",
     "unpaid": "Unpaid",
-    "checkout": "Checkout",  
+    "checkout": "Checkout",
+    "update": "Update",
+    "cancel": "Cancel",  
     "menu_management": {
       "upload": "Upload",
       "browse_button": "Browse",
@@ -77,5 +79,27 @@
       "create": "Create",
       "name_category_required": "name and category are needed",
       "create_failed": "Fail Create"
+    },
+    "order_management": {
+      "edit_order": "Edit Order",
+      "table_number": "Table Number",
+      "status": "Status",
+      "payment_status": "Payment Status",
+      "items": "Items",
+      "add_item": "Add Item",
+      "remove_item": "Remove",
+      "quantity": "Quantity",
+      "update_success": "Order updated successfully",
+      "update_failed": "Failed to update order",
+      "status_options": {
+        "pending": "Pending",
+        "preparing": "Preparing",
+        "served": "Served",
+        "completed": "Completed"
+      },
+      "payment_status_options": {
+        "unpaid": "Unpaid",
+        "paid": "Paid"
+      }
     }
   }
