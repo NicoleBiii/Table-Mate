@@ -4,6 +4,7 @@ import { updatePaymentStatus, updateOrderStatus, getAllOrders } from '../../../a
 import CheckoutModal from '../../../components/CheckoutModal/CheckoutModal';
 import { useTranslation } from 'react-i18next';
 import "./MarchantTable.scss";
+
 function MarchantTable() {
   const { t } = useTranslation();
   const [orders, setOrders] = useState([]);
@@ -60,7 +61,7 @@ function MarchantTable() {
                     {formatDistanceToNowStrict(new Date(tableOrder.createdAt))} ago
                   </div>
                   <button 
-                    className="checkout-btn"
+                    className="marchant-btn"
                     onClick={() => {
                       setSelectedOrder(tableOrder._id);
                       setShowModal(true);

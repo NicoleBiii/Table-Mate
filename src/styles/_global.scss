@@ -6,10 +6,26 @@ body {
     font-family: "OpenSans", "NotoSansSC", sans-serif;
 }
 
-// html[lang="en"] {
-//     font-family: "OpenSans", sans-serif;
-// }
+.marchant-btn {
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: $secondary-orange;
+    color: $primary-white;
+    &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px $primary-white;
+      }
+    
+      &:active {
+        transform: translateY(1px);
+        box-shadow: 0 2px 5px $primary-white;
+      }
+  }
 
-// html[lang="zh"] {
-//     font-family: "NotoSansSC", sans-serif;
-// }
+.modal-actions {
+display: flex;
+gap: 1rem;
+justify-content: flex-end;
+}
+

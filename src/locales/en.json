@@ -68,6 +68,11 @@
       "available": "Available",
       "edit_dish": "Edit Menu Item",
       "dish_image": "Menu Item Image",
-      "save": "Save Change"
+      "save": "Save Change",
+      "delete": "Delete",
+      "confirm_delete": "Are you sure you want to delete this dish?",
+      "confirm": "Confirm",
+      "cancel": "Cancel",
+      "delete_failed": "Delete failed"
     }
   }

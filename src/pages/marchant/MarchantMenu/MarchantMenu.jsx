@@ -3,10 +3,11 @@ import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { Search, Edit } from "lucide-react";
 import AlterImage from "../../../assets/images/logo_withbg.PNG";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { getAllMenuItems } from "../../../api/menuApi";
 
 function MerchantMenu() {
+  const location = useLocation(); 
   const { t, i18n } = useTranslation();
   const [menuItems, setMenuItems] = useState({});
   const [categories, setCategories] = useState([]);
@@ -22,12 +23,22 @@ function MerchantMenu() {
         return acc;
       }, {});
       setMenuItems(groupedMenu);
-      setCategories(Object.keys(groupedMenu));
-      setSelectedCategory(Object.keys(groupedMenu)[0] || null);
+      const categoriesList = Object.keys(groupedMenu);
+      setCategories(categoriesList);
+
+      const savedCategory = location.state?.fromCategory;
+
+      console.log(savedCategory);
+      
+      if (savedCategory &&  categoriesList.includes(savedCategory)) {
+        setSelectedCategory(savedCategory);
+      } else {
+        setSelectedCategory(categoriesList[0] || null);
+      }
     };
 
     fetchMenuItems();
-  }, [i18n.language]);
+  }, [i18n.language, location.state]);
 
   const filteredItems = selectedCategory 
   ? menuItems[selectedCategory]?.filter(item => 
@@ -84,6 +95,7 @@ function MerchantMenu() {
                 <span className="item-price">${item.price}</span>
                 <Link 
                   to={`/merchant/menu/edit/${item.id}`}
+                  state={{ fromCategory: selectedCategory }}
                   className="edit-link"
                 >
                   <Edit size={16} />

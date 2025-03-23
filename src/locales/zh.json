@@ -67,6 +67,11 @@
         "available": "是否可用",
         "edit_dish": "菜品编辑",
         "dish_image": "菜品图片",
-        "save": "保存更改"
+        "save": "保存更改",
+        "delete": "删除",
+        "confirm_delete": "确定要删除这个菜品吗？",
+        "confirm": "确认",
+        "cancel": "取消",
+        "delete_failed": "删除失败"
       }
     }

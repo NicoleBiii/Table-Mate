@@ -20,7 +20,6 @@ const CheckoutModal = ({
   return (
     <div className="checkout-modal">
       <div className="modal-backdrop" onClick={onClose} />
-      
       <div className="modal-content">
         <h3 className="modal-title">Confirm Checkout</h3>
         <p className="modal-description">
@@ -31,13 +30,13 @@ const CheckoutModal = ({
 
         <div className="modal-actions">
           <button 
-            className="cancel-btn"
+            className="marchant-btn"
             onClick={onClose}
           >
             Cancel
           </button>
           <button 
-            className="confirm-btn"
+            className="marchant-btn"
             onClick={onConfirm}
           >
             Confirm Checkout

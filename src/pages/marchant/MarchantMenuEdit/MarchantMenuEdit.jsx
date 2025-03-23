@@ -1,16 +1,20 @@
 import { useState, useEffect } from "react";
-import { useParams, useNavigate } from "react-router-dom";
-import { getMenuItemById, updateMenuItem } from "../../../api/menuApi";
+import { useParams, useNavigate, useLocation } from "react-router-dom";
+import { getMenuItemById, updateMenuItem, deleteMenuItem } from "../../../api/menuApi";
 import ImageUploader from "../../../components/ImageUploader/ImageUploader";
 import Loader from "../../../components/Loader/Loader";
 import { useTranslation } from "react-i18next";
 import "./MarchantMenuEdit.scss";
 
 const MenuEdit = () => {
-    const { t, i18n } = useTranslation();
+  const location = useLocation();
+  const fromCategory =
+    location.state?.fromCategory || localStorage.getItem("lastCategory");
+  const { t, i18n } = useTranslation();
   const { id } = useParams();
   const navigate = useNavigate();
   const [loading, setLoading] = useState(true);
+  const [showDeleteModal, setShowDeleteModal] = useState(false); 
   const [formData, setFormData] = useState({
     name: { cn: "", en: "" },
     description: { cn: "", en: "" },
@@ -19,6 +23,11 @@ const MenuEdit = () => {
     image: "",
     available: true,
   });
+
+  useEffect(() => {
+    const savedCategory =
+      location.state?.fromCategory || localStorage.getItem("lastCategory");
+  }, [i18n.language, location.state]);
 
   // getting menu item
   useEffect(() => {
@@ -69,7 +78,10 @@ const MenuEdit = () => {
 
     try {
       await updateMenuItem(id, formData);
-      navigate("/merchant/menu"); // back to menu page
+      navigate("/merchant/menu", {
+        state: { fromCategory },
+        replace: true,
+      }); // back to menu page
     } catch (error) {
       console.error("Update failed:", error);
       alert("fail update");
@@ -77,12 +89,29 @@ const MenuEdit = () => {
   };
 
   const handleUploadSuccess = (url) => {
-    setFormData(prev => ({
-        ...prev,
-        image: url
-      }));
-    console.log('updated image url:', url);
+    setFormData((prev) => ({
+      ...prev,
+      image: url,
+    }));
+    console.log("updated image url:", url);
   };
+
+  const handleConfirmDelete = async () => {
+    setShowDeleteModal(false);
+    try {
+      const token = localStorage.getItem("token");
+      await deleteMenuItem(id, token);
+      navigate("/merchant/menu", {
+        state: { fromCategory },
+        replace: true,
+      });
+    } catch (error) {
+      console.error("Delete failed:", error);
+      alert(t("menu_management.delete_failed"));
+    }
+  };
+
+
 
   if (loading) return <Loader />;
 
@@ -198,12 +227,44 @@ const MenuEdit = () => {
         </div>
 
         <div className="form-actions">
-          <button type="submit">{t("menu_management.save")}</button>
-          <button type="button" onClick={() => navigate(-1)}>
-          {t("menu_management.save")}
+          <button type="submit" className="marchant-btn">{t("menu_management.save")}</button>
+          <button
+            type="button"
+            onClick={() =>
+              navigate("/merchant/menu", {
+                state: { fromCategory },
+                replace: true,
+              })
+            }
+            className="marchant-btn"
+        >
+            {t("menu_management.cancel")}
+          </button>
+          <button
+            type="button"
+            className="delete-btn"
+            onClick={() => setShowDeleteModal(true)}
+          >
+            {t("menu_management.delete")}
           </button>
         </div>
       </form>
+
+      {showDeleteModal && (
+        <div className="delete-modal-overlay">
+          <div className="delete-modal-content">
+            <p>{t("menu_management.confirm_delete")}</p>
+            <div className="modal-actions">
+              <button onClick={handleConfirmDelete} className="marchant-btn">
+                {t("menu_management.confirm")}
+              </button>
+              <button onClick={() => setShowDeleteModal(false)} className="marchant-btn">
+                {t("menu_management.cancel")}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

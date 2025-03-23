@@ -81,11 +81,7 @@ export const updateMenuItem = async (id, menuItem, token) => {
 // Delete menu item 
 export const deleteMenuItem = async (id, token) => {
     try {
-      const response = await axios.delete(`${API_BASE_URL}/${id}`, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
+      const response = await axios.delete(`${API_BASE_URL}/${id}`);
       return response.data;
     } catch (error) {
       console.error("Error deleting menu item:", error);
