@@ -72,7 +72,10 @@
       "delete": "Delete",
       "confirm_delete": "Are you sure you want to delete this dish?",
       "confirm": "Confirm",
-      "cancel": "Cancel",
-      "delete_failed": "Delete failed"
+      "delete_failed": "Delete failed",
+      "create_dish": "Create Dish",
+      "create": "Create",
+      "name_category_required": "name and category are needed",
+      "create_failed": "Fail Create"
     }
   }

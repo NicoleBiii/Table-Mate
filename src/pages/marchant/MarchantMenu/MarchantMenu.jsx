@@ -1,7 +1,7 @@
 import "./MarchantMenu.scss";
 import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
-import { Search, Edit } from "lucide-react";
+import { Search, Edit, Plus } from "lucide-react";
 import AlterImage from "../../../assets/images/logo_withbg.PNG";
 import { Link, useLocation } from "react-router-dom";
 import { getAllMenuItems } from "../../../api/menuApi";
@@ -39,12 +39,16 @@ function MerchantMenu() {
 
     fetchMenuItems();
   }, [i18n.language, location.state]);
+  
+  const allItems = Object.values(menuItems).flat();
 
-  const filteredItems = selectedCategory 
-  ? menuItems[selectedCategory]?.filter(item => 
+  const filteredItems = searchQuery
+  ? allItems.filter(item => 
       item.name.toLowerCase().includes(searchQuery.toLowerCase())
-  ) 
-  : [];
+    )
+  : selectedCategory
+    ? menuItems[selectedCategory] || []
+    : [];
 
 
   return (
@@ -59,22 +63,24 @@ function MerchantMenu() {
         />
       </div>
 
-      {/* Nav Bar */}
-      <div className="category-scroll-container">
-        <div className="category-nav">
-          {categories.map(category => (
-            <div
-              key={category}
-              className={`category-card ${selectedCategory === category ? 'active' : ''}`}
-              onClick={() => setSelectedCategory(category)}
-            >
-              {category}
-            </div>
-          ))}
+      {/* hide nav bar when search */}
+      {!searchQuery && (
+        <div className="category-scroll-container">
+          <div className="category-nav">
+            {categories.map(category => (
+              <div
+                key={category}
+                className={`category-card ${selectedCategory === category ? 'active' : ''}`}
+                onClick={() => setSelectedCategory(category)}
+              >
+                {category}
+              </div>
+            ))}
+          </div>
         </div>
-      </div>
+      )}
 
-      {/* menu Item List */}
+      {/* menu item list */}
       <div className="menu-items-grid">
         {filteredItems.map(item => (
           <div key={item._id} className="menu-item-card">
@@ -106,6 +112,12 @@ function MerchantMenu() {
           </div>
         ))}
       </div>
+      <Link 
+        to="/merchant/menu/create"
+        className="floating-add-button"
+      >
+        <Plus size={24} />
+      </Link>
     </div>
   );
 }

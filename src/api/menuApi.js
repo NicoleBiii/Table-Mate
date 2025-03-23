@@ -66,11 +66,7 @@ export const createMenuItem = async (menuItem, token) => {
 // Update menu item
 export const updateMenuItem = async (id, menuItem, token) => {
     try {
-      const response = await axios.put(`${API_BASE_URL}/${id}`, menuItem, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
+      const response = await axios.put(`${API_BASE_URL}/${id}`, menuItem);
       return response.data;
     } catch (error) {
       console.error("Error updating menu item:", error);

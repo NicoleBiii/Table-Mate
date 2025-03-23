@@ -71,7 +71,10 @@
         "delete": "删除",
         "confirm_delete": "确定要删除这个菜品吗？",
         "confirm": "确认",
-        "cancel": "取消",
-        "delete_failed": "删除失败"
+        "delete_failed": "删除失败",
+        "create_dish": "创建新菜品",
+        "create": "创建",
+        "name_category_required": "请填写中英文名称和分类",
+        "create_failed": "创建失败"
       }
     }
