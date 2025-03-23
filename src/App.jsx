@@ -12,6 +12,7 @@ import UserProfile from './pages/client/UserProfile/UserProfile.jsx';
 // Marchant Pages
 import MarchantHomePage from "./pages/marchant/MarchantHomePage/MarchantHomePage";
 import MarchantMenu from "./pages/marchant/MarchantMenu/MarchantMenu";
+import MarchantMenuEdit from "./pages/marchant/MarchantMenuEdit/MarchantMenuEdit.jsx"
 import MarchantOrder from './pages/marchant/MarchantOrder/MarchantOrder.jsx';
 import MarchantTable from './pages/marchant/MarchantTable/MarchantTable.jsx';
 
@@ -34,6 +35,7 @@ function App() {
           <Route path="/merchant" element={<MarchantLayout><MarchantHomePage /></MarchantLayout>} />
           <Route path="/merchant/order" element={<MarchantLayout><MarchantOrder /></MarchantLayout>} />
           <Route path="/merchant/menu" element={<MarchantLayout><MarchantMenu /></MarchantLayout>} />
+          <Route path="/merchant/menu/edit/:id" element={<MarchantLayout><MarchantMenuEdit /></MarchantLayout>} />
           <Route path="/merchant/table" element={<MarchantLayout><MarchantTable /></MarchantLayout>} />
         </Routes>
       </BrowserRouter>

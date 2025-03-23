@@ -21,7 +21,6 @@ function MerchantMenu() {
         acc[item.category].push(item);
         return acc;
       }, {});
-      
       setMenuItems(groupedMenu);
       setCategories(Object.keys(groupedMenu));
       setSelectedCategory(Object.keys(groupedMenu)[0] || null);
@@ -84,7 +83,7 @@ function MerchantMenu() {
               <div className="item-meta">
                 <span className="item-price">${item.price}</span>
                 <Link 
-                  to={`/merchant/menu/edit/${item._id}`}
+                  to={`/merchant/menu/edit/${item.id}`}
                   className="edit-link"
                 >
                   <Edit size={16} />

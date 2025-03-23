@@ -44,5 +44,27 @@
     "available": "Available",
     "unavailable": "Not Available",
     "unpaid": "Unpaid",
-    "checkout": "Checkout"
+    "checkout": "Checkout",  
+    "menu_management": {
+      "upload": "Upload",
+      "browse_button": "Browse",
+      "drag_prompt": "Drag image here or",
+      "drop_to_upload": "Drop to upload",
+      "update_prompt": "Click or drag to update",
+      "uploading": "Uploading...",
+      "invalid_file_type": "Only image files are allowed",
+      "file_too_large": "Image size exceeds 5MB limit",
+      "upload_failed": "Upload failed",
+      "current_image": "Current Image",
+      "save_changes": "Save Changes",
+      "cancel": "Cancel",
+      "name_cn": "Chinese Name",
+      "name_en": "English Name",
+      "category_cn": "Chinese Category",
+      "category_en": "English Category",
+      "price": "Price",
+      "description_cn": "Chinese Description",
+      "description_en": "English Description",
+      "available": "Available"
+    }
   }

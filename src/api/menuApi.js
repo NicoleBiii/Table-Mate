@@ -16,9 +16,9 @@ export const getAllMenuItems = async (lang = "en") => {
 
 
 // get menu item by id 
-export const getMenuItemById = async (id, lang = "en") => {
+export const getMenuItemById = async (id) => {
     try {
-      const response = await axios.get(`${API_BASE_URL}/${id}?lang=${lang}`);
+      const response = await axios.get(`${API_BASE_URL}/${id}`);
       return response.data;
     } catch (error) {
       console.error("Error fetching menu item:", error);
@@ -94,21 +94,24 @@ export const deleteMenuItem = async (id, token) => {
   };
 
 // upload menu item image
-export const uploadMenuItemImage = async (file, token) => {
+export const uploadMenuItemImage = async (file) => {
     try {
       const formData = new FormData();
       formData.append("image", file);
   
       const response = await axios.post(`${API_BASE_URL}/upload`, formData, {
         headers: {
-          Authorization: `Bearer ${token}`,
-          "Content-Type": "multipart/form-data",
-        },
+          'Content-Type': 'multipart/form-data'
+        }
       });
-  
+      console.log('上传成功:', response.data);
       return response.data.imageUrl;
     } catch (error) {
-      console.error("Error uploading menu item image:", error);
+      console.error('完整错误信息:', {
+        status: error.response?.status,
+        data: error.response?.data,
+        message: error.message
+      });
       throw error;
     }
   };

@@ -43,5 +43,27 @@
     "available": "有货",
     "unavailable": "已下架",
     "unpaid": "待付款",
-    "checkout": "结账"
+    "checkout": "结账",
+    "menu_management": {
+        "upload": "上传",
+        "browse_button": "浏览",
+        "drag_prompt": "拖拽图片至此或",
+        "drop_to_upload": "释放上传",
+        "update_prompt": "点击或拖拽更新图片",
+        "uploading": "上传中...",
+        "invalid_file_type": "仅支持图片文件",
+        "upload_failed": "上传失败",
+        "file_too_large": "图片大小不能超过5MB",
+        "current_image": "当前菜品图片",
+        "save_changes": "保存图片",
+        "cancel": "取消",
+        "name_cn": "中文名称",
+        "name_en": "英文名称",
+        "category_cn": "中文分类",
+        "category_en": "英文分类",
+        "price": "价格",
+        "description_cn": "中文描述",
+        "description_en": "英文描述",
+        "available": "是否可用"
+      }
     }
