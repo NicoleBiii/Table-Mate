@@ -47,6 +47,16 @@
     "checkout": "Checkout",
     "update": "Update",
     "cancel": "Cancel",  
+    "logout": "Logout",
+    "login_page": {
+      "title": "Merchant Login",
+      "username": "Username",
+      "password": "Password",
+      "submit": "Login",
+      "error": "Login failed",
+      "invalid_credentials": "Invalid username or password",
+      "server_error": "Server error, please try again later"
+    },
     "menu_management": {
       "upload": "Upload",
       "browse_button": "Browse",

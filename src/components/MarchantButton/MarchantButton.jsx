@@ -1,8 +1,13 @@
 import "./MarchantButton.scss";
 
-function MarchantButton({ children }) {
+function MarchantButton({ children, onClick }) {
   return (
-    <div className="marchant-button">
+    <div 
+      className="marchant-button"
+      onClick={onClick}
+      role="button"
+      tabIndex={0}
+      >
       {children}
     </div>
   )

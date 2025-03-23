@@ -27,8 +27,6 @@ function MerchantMenu() {
       setCategories(categoriesList);
 
       const savedCategory = location.state?.fromCategory;
-
-      console.log(savedCategory);
       
       if (savedCategory &&  categoriesList.includes(savedCategory)) {
         setSelectedCategory(savedCategory);

@@ -1,8 +1,8 @@
-import React from 'react'
-import { useContext } from "react";
+import React, { useContext, useCallback }  from 'react';
 import { LanguageContext } from "../../context/LanguageContent.jsx";
 import { useTranslation } from "react-i18next"; 
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useAuth } from '../../context/AuthContext';
 import logo from "../../assets/images/logo_dark.PNG";
 import MarchantButton from '../MarchantButton/MarchantButton.jsx';
 import "./MarchantHeader.scss";
@@ -10,6 +10,14 @@ import "./MarchantHeader.scss";
 function MarchantHeader() {
   const { toggleLanguage } = useContext(LanguageContext);
   const { t, i18n } = useTranslation();
+  const navigate = useNavigate();
+  const { isAuthenticated, logout } = useAuth();
+
+  const handleLogout = useCallback(() => {
+    logout();
+    navigate("/merchant/login", { replace: true }); 
+  }, [logout, navigate]);
+
   return (
     <div className='m-header'>
       <Link to="/merchant">
@@ -24,9 +32,15 @@ function MarchantHeader() {
           </div>
         </MarchantButton>
 
-        <MarchantButton>
-          <Link>{t("login")}</Link>
-        </MarchantButton>
+        {isAuthenticated ? (
+          <MarchantButton onClick={handleLogout}>
+            {t("logout")}
+          </MarchantButton>
+        ) : (
+          <MarchantButton>
+            <Link to="/login">{t("login")}</Link>
+          </MarchantButton>
+        )}
       </div>
     </div>
   )
