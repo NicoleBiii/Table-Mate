@@ -1,0 +1,35 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+
+
+.floating-cart {
+    position: fixed;
+    bottom: 3.5rem;
+    left: 2rem;
+    display: flex;
+    align-items: center;
+    background: $secondary-orange;
+    border-radius: 30px;
+    padding: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+    z-index: 1000;
+  
+    .cart-icon {
+      color: white;
+      display: flex;
+    }
+  
+    .cart-count {
+      color: white;
+      font-weight: 600;
+      margin-left: 10px;
+      margin-right: 5px;
+      font-size: 1.1rem;
+    }
+  
+    &.expanded {
+      padding-right: 20px;
+    }
+  }

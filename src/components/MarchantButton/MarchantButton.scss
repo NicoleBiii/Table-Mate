@@ -1,0 +1,11 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.marchant-button {
+    color: $primary-light-brown;
+    background-color: rgba($secondary-white, 0.8);
+    border: 2px solid $primary-light-brown;
+    border-radius: .5rem;
+    padding: 0.125rem 0.6rem;
+    cursor: pointer;
+}

@@ -1,0 +1,55 @@
+@use "../../../styles/variables" as *;
+@use "../../../styles/mixins" as *;
+
+
+.table-management {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .tables-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+  }
+  
+  .table-card {
+    padding: 1.5rem;
+    border-radius: 8px;
+    min-height: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  
+    &.no-order {
+      background-color: $color-completed;
+    }
+  
+    &.has-order {
+      background-color: $color-served;
+    }
+  }
+  
+  .table-number {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+  
+  .order-info {
+    text-align: center;
+    
+    .status-group {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 0.5rem;
+    }
+  
+    .time-created {
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+    }
+  }

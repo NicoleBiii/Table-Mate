@@ -1,0 +1,42 @@
+@use "../../styles/mixins" as *;
+@use "../../styles/variables" as *;
+
+.checkout-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  .modal-backdrop {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+  }
+  
+  .modal-content {
+    position: relative;
+    background-color: $secondary-white;
+    padding: 2rem;
+    border-radius: 8px;
+    min-width: 400px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  }
+  
+  .modal-title {
+    margin: 0 0 1rem;
+    font-size: 1.25rem;
+  }
+  
+  .modal-description {
+    margin: 0 0 2rem;
+    line-height: 1.5;
+  }
+
+  

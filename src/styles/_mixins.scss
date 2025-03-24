@@ -1,0 +1,46 @@
+@use "./variables" as *;
+
+@mixin tablet {
+    @media (min-width: $tablet-min-width) {
+        @content;
+    }
+}
+
+
+@mixin desktop {
+    @media (min-width: $desktop-min-width) {
+        @content;
+    }
+}
+
+@mixin flex-nowrap {
+    display: flex;
+    flex-wrap: nowrap;
+  }
+  
+
+  @mixin scrollable-x {
+    overflow-x: auto;
+    scrollbar-width: thin;
+    scrollbar-color: rgba($primary-black, 0.3) transparent;
+  
+    &::-webkit-scrollbar {
+      height: 6px;
+      background: transparent;
+    }
+  
+    &::-webkit-scrollbar-thumb {
+      background: rgba($primary-black, 0.3);
+      border-radius: 3px;
+    }
+  }
+  
+  @mixin flex-align-center {
+    display: flex;
+    align-items: center;
+  }
+  @mixin flex-space-between {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }

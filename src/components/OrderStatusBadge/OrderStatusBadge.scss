@@ -1,0 +1,19 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.status-badge {
+    padding: .25rem .5rem;
+    border-radius: 1.25rem;
+    &__pending {
+        background-color: $color-pending;
+    }
+    &__preparing {
+        background-color: $color-preparing;
+    }
+    &__served {
+        background-color: $color-served;
+    }
+    &__completed {
+        background-color: $color-completed;
+    }
+}

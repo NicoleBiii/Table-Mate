@@ -1,0 +1,27 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.c-menubar {
+    width: 5rem;
+    height: calc(100vh - 3rem);
+    background-color: $secondary-white;
+    font-size: .8rem;
+    position: sticky;
+    top: 0;
+    overflow-y: auto;
+    &__item {
+        cursor: pointer;
+        height: 3rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        flex-wrap: wrap;
+        color: $secondary-brown;
+        &--active {
+            color: $primary-black;
+            border-left: .1875rem solid $primary-black;
+            background-color: white;
+        }
+    }
+}

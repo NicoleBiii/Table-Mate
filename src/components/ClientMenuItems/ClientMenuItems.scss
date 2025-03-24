@@ -1,0 +1,77 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.c-dishes {
+    padding: 1rem 0 4rem 0;
+    display: flex;
+    gap: 1rem;
+    flex-direction: column;
+    width: calc(100vw - 5rem);
+    &--search {
+        width: 100%;
+    }
+}
+
+.c-dish{
+    margin: 0 1rem;
+    height: 15rem;
+    border-radius: 1rem;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    &__photo {
+        width: 100%;
+        height: 70%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+    &__bottom {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        padding: .25rem .75rem .75rem .75rem;
+    }
+    &__order {
+        display: flex;
+        justify-content: space-between;
+    }
+}
+
+.quantity-control {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  
+    &__btn {
+      background: $secondary-orange;
+      border: none;
+      border-radius: 50%;
+      width: 24px;
+      height: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      cursor: pointer;
+      padding: 0;
+      
+      &:hover {
+        background: darken($secondary-orange, 10%);
+      }
+    }
+  
+    &__count {
+      min-width: 20px;
+      text-align: center;
+      font-weight: 600;
+    }
+  }
+  
