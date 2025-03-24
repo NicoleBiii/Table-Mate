@@ -5,13 +5,13 @@ Table-Mate is a bilingual Chinese-English QR code-based restaurant ordering web 
 ## Features
 - **User Side:**
   - Scan QR codes to access table-specific ordering pages.
-  - <img width="399" alt="scanpage" src="https://github.com/user-attachments/assets/301d5dac-cb85-4e8b-aee2-81df2badfeca" />
+  <img width="399" alt="scanpage" src="https://github.com/user-attachments/assets/301d5dac-cb85-4e8b-aee2-81df2badfeca" />
   - Browse categorized menus and search for menu items.
-  - <img width="399" alt="usermenu" src="https://github.com/user-attachments/assets/b0745228-d1fd-4f82-98dc-b62d1362cccc" />
+  <img width="399" alt="usermenu" src="https://github.com/user-attachments/assets/b0745228-d1fd-4f82-98dc-b62d1362cccc" />
   - Add items to the cart and place orders.
 
   - View order status and modify existing orders.
-  - <img width="401" alt="orderplaced" src="https://github.com/user-attachments/assets/30967991-cd6d-4a5f-b3f3-07725f580e1f" />
+  <img width="401" alt="orderplaced" src="https://github.com/user-attachments/assets/30967991-cd6d-4a5f-b3f3-07725f580e1f" />
 
   - Basic user profile (not yet fully implemented).
   - Multilingual support (English & Chinese) with **i18next**.
@@ -22,11 +22,11 @@ Table-Mate is a bilingual Chinese-English QR code-based restaurant ordering web 
   - <img width="1029" alt="marchanthome" src="https://github.com/user-attachments/assets/9009937d-8d59-4b32-8f23-3cf8372bedf7" />
 
   - Manage orders, update order status, and edit existing orders.
-  - <img width="1033" alt="marchantorder" src="https://github.com/user-attachments/assets/ff8cdcb7-9beb-438c-9522-9c6180127197" />
+  <img width="1033" alt="marchantorder" src="https://github.com/user-attachments/assets/ff8cdcb7-9beb-438c-9522-9c6180127197" />
 <img width="1030" alt="orderedit" src="https://github.com/user-attachments/assets/5e1da1cc-9530-4906-bfa1-ba8a6346e719" />
 
   - Menu management (add, edit, and delete menu items with images).
-  - <img width="1224" alt="marchantmenu" src="https://github.com/user-attachments/assets/1d2ffef5-344c-489e-acd2-f2318ae62a16" />
+  <img width="1224" alt="marchantmenu" src="https://github.com/user-attachments/assets/1d2ffef5-344c-489e-acd2-f2318ae62a16" />
 <img width="1226" alt="menuedit" src="https://github.com/user-attachments/assets/ad81e120-a701-4614-b457-a1d4284f411e" />
 <img width="1226" alt="menuadd" src="https://github.com/user-attachments/assets/4224d4cf-c318-46a7-ab36-b020338e73f7" />
 
