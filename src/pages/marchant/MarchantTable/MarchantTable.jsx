@@ -3,6 +3,7 @@ import { formatDistanceToNowStrict } from 'date-fns';
 import { updatePaymentStatus, updateOrderStatus, getAllOrders } from '../../../api/orderApi';
 import CheckoutModal from '../../../components/CheckoutModal/CheckoutModal';
 import { useTranslation } from 'react-i18next';
+import { useAuth } from "../../../context/AuthContext";
 import "./MarchantTable.scss";
 
 function MarchantTable() {
@@ -10,6 +11,7 @@ function MarchantTable() {
   const [orders, setOrders] = useState([]);
   const [selectedOrder, setSelectedOrder] = useState(null);
   const [showModal, setShowModal] = useState(false);
+  const { isAuthenticated } = useAuth();
   const tables = Array.from({ length: 12 }, (_, i) => i + 1);
 
   const loadOrders = async () => {
@@ -25,13 +27,19 @@ function MarchantTable() {
     loadOrders();
   }, []);
 
+
   const handleCheckout = async () => {
+    if (!isAuthenticated) {
+      alert("you need logined to chekout");
+      return;
+    }
+  
     try {
-      await updatePaymentStatus(selectedOrder, 'paid');
-      await updateOrderStatus(selectedOrder, 'completed');
+      await updatePaymentStatus(selectedOrder, "paid");
+      await updateOrderStatus(selectedOrder, "completed");
       loadOrders();
     } catch (error) {
-      console.error('Checkout failed:', error);
+      console.error("Checkout failed:", error);
     } finally {
       setShowModal(false);
     }
