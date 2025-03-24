@@ -21,7 +21,7 @@ function UserMenu() {
   const [isSearching, setIsSearching] = useState(false);
   const [loading, setLoading] = useState(false);
   const [cart, setCart] = useState(() => {
-    const savedCart = sessionStorage.getItem("cart");
+    const savedCart = sessionStorage.getItem(`cart_${tableNumber}`);
     return savedCart ? JSON.parse(savedCart) : [];
   });
 
@@ -121,6 +121,7 @@ function UserMenu() {
                   isSearchResult
                   cart={cart}
                   setCart={setCart}
+                  tableNumber={tableNumber}
                 />
               ) : (
                 <div className="no-results">
@@ -134,6 +135,7 @@ function UserMenu() {
               menuItems={menuItems}
               cart={cart}
               setCart={setCart}
+              tableNumber={tableNumber}
             />
           )}
         </div>

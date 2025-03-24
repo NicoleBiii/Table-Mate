@@ -2,31 +2,31 @@ import "./UserOrderPage.scss";
 import { useTranslation } from "react-i18next";
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { createOrder, getOrderById, updateOrder } from "../../../api/orderApi"; 
+import { createOrder, getOrderById, updateOrder,getOrderByTableNumber } from "../../../api/orderApi"; 
 import { getAllMenuItems } from "../../../api/menuApi";
-import i18n from "../../../i18n";
 
 function UserOrderPage() {
     const{ tableNumber } = useParams();
-    const navigate = useNavigate();
+    
+    // const navigate = useNavigate();
     const { t, i18n } = useTranslation();
+    const [order, setOrder] = useState(null);
+
     // Get cart
     const [cart, setCart] = useState(() => {
-        const savedCart = sessionStorage.getItem("cart");
+        const savedCart = sessionStorage.getItem(`cart_${tableNumber}`);
         return savedCart ? JSON.parse(savedCart) :  [];
     })
     
     // update cart information
     useEffect(() => {
-        sessionStorage.setItem("cart", JSON.stringify(cart));
-    }, [cart]);
+        sessionStorage.setItem(`cart_${tableNumber}`, JSON.stringify(cart));
+    }, [cart, tableNumber]);
 
-    const [allMenuItems, setAllMenuItems] = useState([]);
-
+    // update cart language when language change
     const updateCartNames = async () => {
         try {
             const latestMenu = await getAllMenuItems(i18n.language);
-            
             const menuMap = new Map(latestMenu.map(item => [item.id, item]));
             
             const updatedCart = cart.map(cartItem => {
@@ -48,33 +48,29 @@ function UserOrderPage() {
         }
     }, [i18n.language]);
     
-    // order
-    const [order, setOrder] = useState(null);
-    const orderId = localStorage.getItem("orderId");
     
     // Getting order of current table
-
-    
     useEffect(() => {
-        if (!orderId || orderId === "undefined") return;
-
         const fetchOrder = async () => {
-            try {
-                const fetchedOrder = await getOrderById(orderId);
-                
-                setOrder(fetchedOrder);
-
-                // if order is paid or fail fetch order, clear localStorage and set order to null
-                if (fetchedOrder.paymentStatus === "paid" || !fetchedOrder || fetchedOrder == -1 ) {
-                    localStorage.removeItem("orderId");
-                    setOrder(null);
-                }
-            } catch (error) {
-                console.error("fail fetch order:", error);
+          try {
+            const fetchedOrder = await getOrderByTableNumber(tableNumber);
+            
+            if (fetchedOrder?._id && fetchedOrder.paymentStatus !== 'paid') {
+              localStorage.setItem("orderId", fetchedOrder._id);
+              setOrder(fetchedOrder);
+            } else {
+              localStorage.removeItem("orderId");
+              setOrder(null);
             }
-        }
+          } catch (error) {
+            console.error("Fetch order error:", error);
+            localStorage.removeItem("orderId");
+            setOrder(null);
+          }
+        };
         fetchOrder();
-    }, [orderId]);
+      }, [tableNumber]);
+    
 
     const updateQuantity = (id, delta) => {
         setCart((prevCart) => 
@@ -87,6 +83,7 @@ function UserOrderPage() {
 
     const handleCheckout = async() => {
         if(!cart.length) return alert(t("cart_empty"));
+        // const currentOrderId = order?._id || localStorage.getItem("orderId");
         try {
             const orderData = {
                 tableNumber: Number(tableNumber),
@@ -94,10 +91,18 @@ function UserOrderPage() {
                 totalPrice: cart.reduce((total, item) => total + item.price * item.quantity, 0),
             };
             
-            if (orderId && orderId != "undefined") {
+            if (order?._id) {
                 // If the order already exists, update it
                 // get current order
-                const currentOrder = await getOrderById(orderId);
+                
+                const currentOrder = await getOrderById(order._id);
+                
+                if (!currentOrder || !currentOrder.items) {
+                    console.error("currentOrder is invalid", currentOrder);
+                    alert(t("order_failed"));
+                    return;
+                }
+    
                 //merge old and new menuitem
                 const mergedItems = [...currentOrder.items];
 
@@ -123,10 +128,13 @@ function UserOrderPage() {
                     totalPrice: currentOrder.totalPrice + 
                       cart.reduce((sum, item) => sum + item.price * item.quantity, 0)
                   };
-                await updateOrder(orderId, updateData);
-                const updatedOrder = await getOrderById(orderId);
+
+                await updateOrder(order._id, updateData);
+                const updatedOrder = await getOrderByTableNumber(tableNumber);
+                
                 setOrder(updatedOrder); 
-                sessionStorage.removeItem("cart");
+
+                sessionStorage.removeItem(`cart_${tableNumber}`);
                 setCart([]);
                 alert(t("order_updated"));
                 return;
@@ -134,10 +142,18 @@ function UserOrderPage() {
 
             // Create a new order and save the orderId to localStorage
             const newOrder = await createOrder(orderData);
+            
+            if (!newOrder || !newOrder._id) {
+                throw new Error("Failed to create order");
+            }
+
+            await new Promise((resolve) => setTimeout(resolve, 200));
+
             const populatedOrder = await getOrderById(newOrder._id);
             localStorage.setItem("orderId", populatedOrder._id);
             setOrder(populatedOrder);
-            sessionStorage.removeItem("cart");
+            
+            sessionStorage.removeItem(`cart_${tableNumber}`);
             setCart([]); 
             alert(t("order_successed"));
         } catch (e) {
@@ -170,13 +186,13 @@ function UserOrderPage() {
                 )}
                 <button onClick={handleCheckout}>{t("add")}</button> 
             </div>
-                {order && (
+                {order?.items?.length > 0 && (
                     <div className="myorder">
                         <h3>{t("ordered")}</h3>
                         <p>{t("order_status")}:{t(order.status)}</p>
                         <ul>
                             {order.items.map((item) => (
-                                <li key={item.menuItem._id}>
+                                <li key={item.menuItem?._id || item.menuItem}>
                                     {i18n.language === "en" ? item.menuItem.name.en : item.menuItem.name.cn} x {item.quantity}
                                 </li>
                             ))}

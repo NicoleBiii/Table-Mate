@@ -10,6 +10,19 @@ const getHeaders = () => {
     : { "Content-Type": "application/json" };
 };
 
+// get order by table number
+export const getOrderByTableNumber = async (tableNumber) => {
+  try {
+    const response = await axios.get(`${API_BASE_URL}/table/${tableNumber}`);
+    return response.data;
+  } catch (error) {
+    if (error.response?.status === 404) {
+      return null;
+    }
+    console.error("Error fetching order by table:", error);
+    return null;
+  }
+};
 
 export const fetchOrders = async (date) => {
   try {

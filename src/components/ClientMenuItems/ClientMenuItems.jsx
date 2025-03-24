@@ -3,10 +3,10 @@ import "./ClientMenuItems.scss";
 import AlterImage from "../../assets/images/logo_withbg.PNG";
 import { Plus, Minus } from 'lucide-react';
 
-function ClientMenuItems({ isSearchResult,selectedCategory, menuItems, cart, setCart}) {
+function ClientMenuItems({ isSearchResult,selectedCategory, menuItems, cart, setCart, tableNumber }) {
 
     useEffect(() => {
-        sessionStorage.setItem("cart", JSON.stringify(cart));
+        sessionStorage.setItem(`cart_${tableNumber}`, JSON.stringify(cart));
     }, [cart]);
 
     const addToCart = (item) => {
