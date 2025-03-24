@@ -6,7 +6,9 @@ Table-Mate is a bilingual Chinese-English QR code-based restaurant ordering web 
 - **User Side:**
   - Scan QR codes to access table-specific ordering pages.
   <img width="399" alt="scanpage" src="https://github.com/user-attachments/assets/301d5dac-cb85-4e8b-aee2-81df2badfeca" />
+
   - Browse categorized menus and search for menu items.
+    
   <img width="399" alt="usermenu" src="https://github.com/user-attachments/assets/b0745228-d1fd-4f82-98dc-b62d1362cccc" />
   - Add items to the cart and place orders.
 
