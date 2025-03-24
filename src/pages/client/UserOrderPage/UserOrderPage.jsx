@@ -150,6 +150,9 @@ function UserOrderPage() {
             await new Promise((resolve) => setTimeout(resolve, 200));
 
             const populatedOrder = await getOrderById(newOrder._id);
+            console.log(populatedOrder);
+            
+
             localStorage.setItem("orderId", populatedOrder._id);
             setOrder(populatedOrder);
             

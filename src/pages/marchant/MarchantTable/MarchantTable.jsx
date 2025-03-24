@@ -71,7 +71,7 @@ function MarchantTable() {
                   <button 
                     className="marchant-btn"
                     onClick={() => {
-                      setSelectedOrder(tableOrder._id);
+                      setSelectedOrder(tableOrder.tableNumber);
                       setShowModal(true);
                     }}
                   >
@@ -86,7 +86,7 @@ function MarchantTable() {
 
       <CheckoutModal
         show={showModal}
-        orderId={selectedOrder?.tableNumber}
+        orderId={selectedOrder}
         onClose={() => setShowModal(false)}
         onConfirm={handleCheckout}
       />
