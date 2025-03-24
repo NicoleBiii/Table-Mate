@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { LanguageProvider } from './context/LanguageContent.jsx';
 import { AuthProvider } from './context/AuthContext';
+import LandingPage from './pages/LandingPage/LandingPage.jsx';
 import ClientLayout from "./layouts/ClientLayout/ClientLayout";
 import MarchantLayout from "./layouts/MarchantLayout/MarchantLayout";
 import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute.jsx';
@@ -28,6 +29,8 @@ function App() {
       <LanguageProvider>
         <BrowserRouter>
           <Routes>
+            <Route path="/" element={<LandingPage />} />
+            <Route path="*" element={<LandingPage />} />
             {/* user routes */}
             <Route path="/scan" element={<UserScan />} />
             <Route path="/user/:tableNumber" element={<ClientLayout><UserHomePage /></ClientLayout>} />
@@ -37,9 +40,8 @@ function App() {
             <Route path="/user/:tableNumber/profile" element={<ClientLayout><UserProfile /></ClientLayout>} />
 
             {/* marchant routes */}
-            <Route path="/" element={<MarchantLayout><MarchantHomePage /></MarchantLayout>} />
-            <Route path="/merchant/login" element={<MarchantLayout><LoginPage /></MarchantLayout>} />
             <Route path="/merchant" element={<ProtectedRoute><MarchantLayout><MarchantHomePage /></MarchantLayout></ProtectedRoute>} />
+            <Route path="/merchant/login" element={<MarchantLayout><LoginPage /></MarchantLayout>} />
             <Route path="/merchant/order" element={<ProtectedRoute><MarchantLayout><MarchantOrder /></MarchantLayout></ProtectedRoute>} />
             <Route path="/merchant/order/:id/edit" element={<ProtectedRoute><MarchantLayout><MarchantOrderEdit /></MarchantLayout></ProtectedRoute>} />
             <Route path="/merchant/menu" element={<ProtectedRoute><MarchantLayout><MarchantMenu /></MarchantLayout></ProtectedRoute>} />

@@ -1,4 +1,7 @@
 {
+    "welcome": "Welcome",
+    "merchant_login": "Merchant Login",
+    "scan_to_order": "Scan to Order",
     "order": "Order",
     "m-order": "Orders",
     "take_number": "Take a Number",

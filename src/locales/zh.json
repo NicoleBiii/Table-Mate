@@ -1,4 +1,7 @@
 {
+    "welcome": "欢迎",
+    "merchant_login": "商家登陆",
+    "scan_to_order": "扫码点餐",
     "order": "点单",
     "m-order": "订单管理",
     "take_number": "取号",

@@ -2,6 +2,14 @@ import axios from "axios";
 
 const API_BASE_URL = import.meta.env.VITE_API_URL + "/api/menu";
 
+
+const getHeaders = () => {
+  const token = localStorage.getItem("token");
+  return token
+    ? { "Content-Type": "application/json", Authorization: `Bearer ${token}` }
+    : { "Content-Type": "application/json" };
+};
+
 // Get all menu item
 export const getAllMenuItems = async (lang = "en") => {
     try {
@@ -51,11 +59,9 @@ export const searchMenuItems = async (query, lang = "en") => {
 // Create menu item(need authority)
 export const createMenuItem = async (menuItem, token) => {
     try {
-      const response = await axios.post(API_BASE_URL, menuItem, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
+      const response = await axios.post(API_BASE_URL, menuItem, 
+        { headers: getHeaders() }
+      );
       return response.data;
     } catch (error) {
       console.error("Error creating menu item:", error);
@@ -66,7 +72,9 @@ export const createMenuItem = async (menuItem, token) => {
 // Update menu item
 export const updateMenuItem = async (id, menuItem, token) => {
     try {
-      const response = await axios.put(`${API_BASE_URL}/${id}`, menuItem);
+      const response = await axios.put(`${API_BASE_URL}/${id}`, menuItem, 
+        { headers: getHeaders() }
+      );
       return response.data;
     } catch (error) {
       console.error("Error updating menu item:", error);
@@ -77,7 +85,9 @@ export const updateMenuItem = async (id, menuItem, token) => {
 // Delete menu item 
 export const deleteMenuItem = async (id, token) => {
     try {
-      const response = await axios.delete(`${API_BASE_URL}/${id}`);
+      const response = await axios.delete(`${API_BASE_URL}/${id}`, 
+        { headers: getHeaders() }
+      );
       return response.data;
     } catch (error) {
       console.error("Error deleting menu item:", error);
@@ -96,10 +106,10 @@ export const uploadMenuItemImage = async (file) => {
           'Content-Type': 'multipart/form-data'
         }
       });
-      console.log('上传成功:', response.data);
+      console.log('upload success:', response.data);
       return response.data.imageUrl;
     } catch (error) {
-      console.error('完整错误信息:', {
+      console.error('error upload:', {
         status: error.response?.status,
         data: error.response?.data,
         message: error.message
