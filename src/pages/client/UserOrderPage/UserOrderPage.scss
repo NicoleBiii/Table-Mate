@@ -57,7 +57,7 @@
           transition: background-color $transition-speed;
 
           &:hover {
-            background: darken($secondary-orange, 10%);
+            background: scale-color($primary-orange, $lightness: -10%);
           }
         }
       }
@@ -78,7 +78,7 @@
       transition: background-color $transition-speed;
 
       &:hover {
-        background: darken($primary-orange, 10%);
+        background: scale-color($primary-orange, $lightness: -10%);
       }
 
       &:disabled {

@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 
 const CheckoutModal = ({ 
   show, 
-  orderId,
+  order,
   onClose, 
   onConfirm 
 }) => {
@@ -23,7 +23,7 @@ const CheckoutModal = ({
       <div className="modal-content">
         <h3 className="modal-title">Confirm Checkout</h3>
         <p className="modal-description">
-          Are you sure you want to checkout Table #{orderId}?
+          Are you sure you want to checkout Table #{order.tableNumber}?
           <br />
           This action cannot be undone.
         </p>

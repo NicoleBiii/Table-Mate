@@ -35,8 +35,8 @@ function MarchantTable() {
     }
   
     try {
-      await updatePaymentStatus(selectedOrder, "paid");
-      await updateOrderStatus(selectedOrder, "completed");
+      await updatePaymentStatus(selectedOrder._id, "paid");
+      await updateOrderStatus(selectedOrder._id, "completed");
       loadOrders();
     } catch (error) {
       console.error("Checkout failed:", error);
@@ -71,7 +71,7 @@ function MarchantTable() {
                   <button 
                     className="marchant-btn"
                     onClick={() => {
-                      setSelectedOrder(tableOrder.tableNumber);
+                      setSelectedOrder(tableOrder);
                       setShowModal(true);
                     }}
                   >
@@ -86,7 +86,7 @@ function MarchantTable() {
 
       <CheckoutModal
         show={showModal}
-        orderId={selectedOrder}
+        order={selectedOrder}
         onClose={() => setShowModal(false)}
         onConfirm={handleCheckout}
       />
