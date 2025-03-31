@@ -1,4 +1,3 @@
-// src/i18n.js
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 
@@ -22,13 +21,5 @@ i18n
       escapeValue: false,
     },
   });
-
-// document.documentElement.lang = savedLang;
-
-// i18n.on('languageChanged', (lang) => {
-//   document.documentElement.lang = lang;
-//   localStorage.setItem("i18nLanguage", lang);
-// });
-
 
 export default i18n;

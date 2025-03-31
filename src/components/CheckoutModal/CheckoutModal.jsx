@@ -1,5 +1,6 @@
 import "./CheckoutModal.scss"
 import { useEffect } from 'react';
+import { useTranslation } from "react-i18next"; 
 
 const CheckoutModal = ({ 
   show, 
@@ -7,6 +8,7 @@ const CheckoutModal = ({
   onClose, 
   onConfirm 
 }) => {
+  const { t } = useTranslation();
   useEffect(() => {
     if (show) {
       document.body.style.overflow = 'hidden';
@@ -23,23 +25,22 @@ const CheckoutModal = ({
       <div className="modal-content">
         <h3 className="modal-title">Confirm Checkout</h3>
         <p className="modal-description">
-          Are you sure you want to checkout Table #{order.tableNumber}?
-          <br />
-          This action cannot be undone.
+        {`${t("checkout_page.confirm_checkout")} #${order.tableNumber}? ${t("checkout_page.checkout_warning")}`}
+
         </p>
 
         <div className="modal-actions">
           <button 
-            className="marchant-btn"
+            className="merchant-btn"
             onClick={onClose}
           >
-            Cancel
+            {t("cancel")}
           </button>
           <button 
-            className="marchant-btn"
+            className="merchant-btn"
             onClick={onConfirm}
           >
-            Confirm Checkout
+            {t("checkout_page.confirm")}
           </button>
         </div>
       </div>
