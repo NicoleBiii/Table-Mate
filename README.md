@@ -21,14 +21,14 @@ Table-Mate is a bilingual Chinese-English QR code-based restaurant ordering web 
 - **Merchant Side:**
   - Login system with protected routes.
   - Dashboard with daily order statistics and active tables.
-  - <img width="1029" alt="marchanthome" src="https://github.com/user-attachments/assets/9009937d-8d59-4b32-8f23-3cf8372bedf7" />
+  - <img width="1029" alt="merchanthome" src="https://github.com/user-attachments/assets/9009937d-8d59-4b32-8f23-3cf8372bedf7" />
 
   - Manage orders, update order status, and edit existing orders.
-  <img width="1033" alt="marchantorder" src="https://github.com/user-attachments/assets/ff8cdcb7-9beb-438c-9522-9c6180127197" />
+  <img width="1033" alt="merchantorder" src="https://github.com/user-attachments/assets/ff8cdcb7-9beb-438c-9522-9c6180127197" />
 <img width="1030" alt="orderedit" src="https://github.com/user-attachments/assets/5e1da1cc-9530-4906-bfa1-ba8a6346e719" />
 
   - Menu management (add, edit, and delete menu items with images).
-  <img width="1224" alt="marchantmenu" src="https://github.com/user-attachments/assets/1d2ffef5-344c-489e-acd2-f2318ae62a16" />
+  <img width="1224" alt="merchantmenu" src="https://github.com/user-attachments/assets/1d2ffef5-344c-489e-acd2-f2318ae62a16" />
 <img width="1226" alt="menuedit" src="https://github.com/user-attachments/assets/ad81e120-a701-4614-b457-a1d4284f411e" />
 <img width="1226" alt="menuadd" src="https://github.com/user-attachments/assets/4224d4cf-c318-46a7-ab36-b020338e73f7" />
 

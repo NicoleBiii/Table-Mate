@@ -9,7 +9,7 @@
     "myorder": "订单",
     "profile": "我的",
     "order_page": "点单页面",
-    "marchant_panel": "控制台",
+    "merchant_panel": "控制台",
     "login": "登陆",
     "order_count": "订单总数",
     "active_order_count": "桌台有客数",
@@ -113,5 +113,10 @@
           "unpaid": "未支付", 
           "paid": "已支付"
         }
+      },
+      "checkout_page": {
+        "confirm_checkout": "确定结账为此桌结账吗：",
+        "checkout_warning": "操作不可撤回",
+        "confirm": "确定结账"
       }
     }

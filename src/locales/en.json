@@ -9,7 +9,7 @@
     "myorder": "My Order",
     "profile": "Profile",
     "order_page": "Order Page",
-    "marchant_panel": "MarchantPanel",
+    "merchant_panel": "MerchantPanel",
     "login": "Log In",
     "order_count": "Order Count",
     "active_order_count": "Table With Guests",
@@ -114,5 +114,10 @@
         "unpaid": "Unpaid",
         "paid": "Paid"
       }
+    },
+    "checkout_page": {
+      "confirm_checkout": "Are you sure you want to checkout Table",
+      "checkout_warning": "This action cannot be undone.",
+      "confirm": "Confirm Checkout"
     }
   }
