@@ -3,6 +3,7 @@
 Table-Mate is a bilingual Chinese-English QR code-based restaurant ordering web application. This repository contains the frontend built with **Vite + React**, styled using **SCSS**, and designed for a **separated frontend-backend architecture**. The backend can be found here: [Table-Mate Backend](https://github.com/NicoleBiii/Table-Mate-backend).
 
 ## Features
+<video src="screenshots/copy_544B339D-177F-4FD2-AFF2-E6D5B12FD505.MOV" controls width="600"></video>
 - **User Side:**
   - Scan QR codes to access table-specific ordering pages.
   <img width="399" alt="scanpage" src="https://github.com/user-attachments/assets/301d5dac-cb85-4e8b-aee2-81df2badfeca" />
