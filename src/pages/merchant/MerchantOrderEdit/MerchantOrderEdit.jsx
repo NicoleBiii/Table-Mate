@@ -84,9 +84,9 @@ const OrderEdit = () => {
     try {
       await updateOrder(id, orderData);
       alert(t("order_management.update_success"));
-      navigate("/merchant/order");
+      navigate(-1);
     } catch (error) {
-      console.error("更新失败:", error);
+      console.error("error update:", error);
       alert(t("order_management.update_failed"));
     }
   };
@@ -193,7 +193,7 @@ const OrderEdit = () => {
           </button>
           <button
             type="button"
-            onClick={() => navigate("/merchant/order")}
+            onClick={() => navigate(-1)}
             className="merchant-btn cancel-btn"
           >
             {t("cancel")}

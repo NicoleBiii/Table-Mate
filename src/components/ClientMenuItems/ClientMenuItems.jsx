@@ -2,9 +2,11 @@ import { useEffect } from "react";
 import "./ClientMenuItems.scss";
 import AlterImage from "../../assets/images/logo_withbg.PNG";
 import { Plus, Minus } from 'lucide-react';
+import { useTranslation } from "react-i18next";
 
 function ClientMenuItems({ isSearchResult,selectedCategory, menuItems, cart, setCart, tableNumber }) {
 
+    const { t, i18n } = useTranslation();
     useEffect(() => {
         sessionStorage.setItem(`cart_${tableNumber}`, JSON.stringify(cart));
     }, [cart]);
@@ -42,9 +44,10 @@ function ClientMenuItems({ isSearchResult,selectedCategory, menuItems, cart, set
         {menuItems[selectedCategory]?.map((item, index) => {
             const cartItem = cart.find(i => i.id === item.id);
             const quantity = cartItem?.quantity || 0;
-            
+            const isOutOfStock = !item.available;
             return (
                 <div className="c-dish">
+                    {isOutOfStock && <div className="c-dish__unavailable">{t("unavailable")}</div>}
                     <div className="c-dish__photo">
                     <img 
                         src={item.image || AlterImage} 
@@ -77,8 +80,9 @@ function ClientMenuItems({ isSearchResult,selectedCategory, menuItems, cart, set
                                 </>
                             ) : (
                                 <button 
-                                    className="quantity-control__btn"
+                                    className={`quantity-control__btn ${isOutOfStock ? 'disabled' : ''}`}
                                     onClick={() => addToCart(item)}
+                                    disabled={isOutOfStock}
                                 >
                                     <Plus size={16} />
                                 </button>
