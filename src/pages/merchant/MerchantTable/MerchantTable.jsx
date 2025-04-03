@@ -5,6 +5,7 @@ import CheckoutModal from '../../../components/CheckoutModal/CheckoutModal';
 import { useTranslation } from 'react-i18next';
 import { useAuth } from "../../../context/AuthContext";
 import "./MerchantTable.scss";
+import { Link } from 'react-router-dom';
 
 function MerchantTable() {
   const { t } = useTranslation();
@@ -60,6 +61,7 @@ function MerchantTable() {
               <div className="table-number">#{tableNumber}</div>
               
               {tableOrder && (
+                <Link to={`/merchant/order/${tableOrder._id}/edit`} className="table-link">
                 <div className="order-info">
                   <div className="status-group">
                     <span>{t(tableOrder.status)}</span>
@@ -77,7 +79,7 @@ function MerchantTable() {
                   >
                     {t("checkout")}
                   </button>
-                </div>
+                </div></Link>
               )}
             </div>
           )
